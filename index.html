@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christy Ennis-Kloote — Experience Designer & Design Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   CSS VARIABLES & RESET
+   ============================================ */
+:root {
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-text: #3A3A3A;
+  --color-text-muted: #7A7A7A;
+  --color-accent: #D4A853;
+  --color-accent-soft: #F5EDD8;
+  --color-border: #E8E6E1;
+  --color-card-dark: #1A1A1A;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --nav-height: 80px;
+  --section-padding: 120px;
+  --container-width: 1200px;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-dark); line-height: 1.2; }
+h1 { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 600; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 500; }
+h4 { font-size: 1.1rem; font-weight: 500; }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+.section-label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+.btn-primary {
+  background: var(--color-dark);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1.5px solid var(--color-border);
+}
+.btn-outline:hover {
+  border-color: var(--color-dark);
+  background: var(--color-dark);
+  color: #fff;
+}
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+.btn-accent:hover {
+  background: #c49a45;
+  transform: translateY(-2px);
+}
+
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.btn:hover .arrow { transform: translate(3px, -3px); }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(250, 250, 248, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  height: var(--nav-height);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+}
+.nav-brand span { color: var(--color-accent); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--color-dark); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { margin-left: 12px; }
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-dark);
+  margin: 5px 0;
+  transition: var(--transition);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-soft) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+}
+.hero h1 { margin-bottom: 28px; }
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.hero-actions { display: flex; gap: 16px; align-items: center; }
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+.hero-stat-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1;
+}
+.hero-stat-number span { color: var(--color-accent); }
+.hero-stat-label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+}
+.hero-image-wrapper {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #e8e6e1 0%, #d4d2cd 100%);
+}
+.hero-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  background: linear-gradient(135deg, #e8e6e1 0%, #d4d2cd 100%);
+}
+.hero-float-card {
+  position: absolute;
+  bottom: -20px;
+  left: -30px;
+  background: var(--color-dark);
+  color: #fff;
+  padding: 20px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.hero-float-card strong {
+  display: block;
+  font-size: 1.6rem;
+  font-family: var(--font-display);
+  margin-bottom: 2px;
+}
+
+/* ============================================
+   SCROLL-DOWN INDICATOR
+   ============================================ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  animation: float 2.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about {
+  padding: var(--section-padding) 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  line-height: 1.85;
+}
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+.about-highlight {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.about-highlight:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.about-highlight-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 1.2rem;
+}
+.about-highlight h4 { margin-bottom: 8px; }
+.about-highlight p { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; }
+
+.about-image-col {
+  position: relative;
+}
+.about-image-box {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #e8e6e1, #d4d2cd);
+}
+.about-image-box img { width: 100%; height: 100%; object-fit: cover; }
+.about-stat-card {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: 20px 28px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: 0 12px 36px rgba(212,168,83,0.3);
+}
+.about-stat-card strong {
+  display: block;
+  font-size: 2rem;
+  font-family: var(--font-display);
+}
+.about-stat-card span { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ============================================
+   PORTFOLIO / WORK SECTION
+   ============================================ */
+.portfolio {
+  padding: var(--section-padding) 0;
+  background: var(--color-dark);
+  color: #fff;
+}
+.portfolio h2 { color: #fff; }
+.portfolio .section-label { color: rgba(255,255,255,0.5); }
+.portfolio .section-label::before { background: var(--color-accent); }
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+.portfolio-header p {
+  max-width: 480px;
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+}
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+.filter-btn {
+  padding: 10px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.portfolio-grid .wide { grid-column: span 2; }
+
+.project-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #2a2a2a;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.project-card:hover { transform: translateY(-4px); }
+.project-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.project-card:hover .project-card-image { transform: scale(1.05); }
+.project-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+}
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.project-card:hover .project-card-overlay { opacity: 1; }
+.project-card-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+.project-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.project-card-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--color-dark);
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition);
+}
+.project-card:hover .project-card-arrow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   EXPERIENCE / CAREER SECTION
+   ============================================ */
+.experience {
+  padding: var(--section-padding) 0;
+}
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+.experience-header p {
+  max-width: 480px;
+  color: var(--color-text-muted);
+}
+
+.career-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: var(--transition);
+  background: var(--color-surface);
+}
+.career-item:hover { border-color: var(--color-accent); }
+.career-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 32px;
+  cursor: pointer;
+}
+.career-company {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+.career-role {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+.career-dates {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.career-tags {
+  display: flex;
+  gap: 8px;
+}
+.career-tag {
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--color-accent-soft);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+.career-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.career-body-inner {
+  padding: 0 32px 28px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+.career-item.open .career-body {
+  max-height: 400px;
+}
+
+/* ============================================
+   SERVICES / EXPERTISE SECTION
+   ============================================ */
+.services {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.service-card {
+  padding: 40px 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+}
+.service-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+}
+.service-card h3 { margin-bottom: 12px; }
+.service-card p { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+
+/* ============================================
+   CLIENT LOGOS MARQUEE
+   ============================================ */
+.logos-section {
+  padding: 80px 0;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.logos-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.logos-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+}
+.logos-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.logos-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logos-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--color-surface), transparent);
+}
+.logos-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--color-surface), transparent);
+}
+.logos-track {
+  display: flex;
+  width: max-content;
+  animation: logoScroll 45s linear infinite;
+}
+.logos-track:hover {
+  animation-play-state: paused;
+}
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logos-slide {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+.logo-item {
+  flex-shrink: 0;
+  padding: 0 36px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  opacity: 0.25;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: opacity 0.4s ease;
+  position: relative;
+}
+.logo-item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+.logo-item:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .logos-fade { width: 60px; }
+  .logo-item { padding: 0 24px; font-size: 1.05rem; }
+}
+
+/* ============================================
+   CTA BANNER
+   ============================================ */
+.cta-banner {
+  padding: var(--section-padding) 0;
+}
+.cta-card {
+  background: var(--color-dark);
+  border-radius: 24px;
+  padding: 80px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 60%);
+  opacity: 0.1;
+}
+.cta-card .section-label { color: rgba(255,255,255,0.5); }
+.cta-card .section-label::before { background: var(--color-accent); }
+.cta-card h2 { color: #fff; margin-bottom: 20px; }
+.cta-card p { color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 36px; font-size: 1.05rem; }
+
+/* ============================================
+   LATTICEWORK CONSULTING
+   ============================================ */
+.latticework {
+  padding: var(--section-padding) 0;
+}
+.latticework-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.latticework-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-top: 20px;
+  line-height: 1.8;
+}
+.latticework-results {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+}
+.latticework-result-number {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1;
+}
+.latticework-result-number span {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+.latticework-result-label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.latticework-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.latticework-pillar {
+  padding: 28px 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  transition: var(--transition);
+  position: relative;
+}
+.latticework-pillar:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.pillar-number {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.latticework-pillar h4 { margin-bottom: 6px; }
+.latticework-pillar p { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.65; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--color-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 80px 0 0;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.footer-brand span { color: var(--color-accent); }
+.footer-desc { font-size: 0.9rem; line-height: 1.7; max-width: 320px; }
+.footer-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+.footer-links a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.92rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--color-accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+.footer-social a { transition: color 0.3s; }
+.footer-social a:hover { color: var(--color-accent); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .hero-description { margin: 0 auto 40px; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { max-width: 420px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-grid .wide { grid-column: span 1; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .latticework-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-padding: 80px; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 16px;
+  }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .experience-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .career-header { grid-template-columns: 1fr; gap: 12px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 24px; align-items: center; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .cta-card { padding: 48px 28px; }
+  .about-highlights { grid-template-columns: 1fr; }
+  .latticework-results { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand">Christy<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About Me</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#experience">Experience</a>
+      <a href="#services">Services</a>
+      <a href="#latticework">Latticework</a>
+      <a href="#contact" class="btn btn-primary btn-sm nav-cta">Book A Call <span class="arrow">↗</span></a>
+    </div>
+    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ==========================================
+     HERO SECTION
+     ========================================== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">Experience Designer · 2026</div>
+        <h1>Hello — <br>I'm Christy, <br>a design <em>leader</em></h1>
+        <p class="hero-description">
+          Natural optimist driven to find solutions to any design challenge, particularly those that traverse complex systems, together in a cross-functional team.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book A Call <span class="arrow">↗</span></a>
+          <a href="#portfolio" class="btn btn-outline">View Work <span class="arrow">↗</span></a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-number">20<span>+</span></div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="hero-stat-number">50<span>%</span></div>
+            <div class="hero-stat-label">Business Growth</div>
+          </div>
+          <div>
+            <div class="hero-stat-number">25<span>+</span></div>
+            <div class="hero-stat-label">Team Members Led</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up" style="transition-delay: 0.15s;">
+        <div class="hero-image-wrapper">
+          <img src="images/hero-portrait.jpg" alt="Christy Ennis-Kloote" width="800" height="1200" loading="eager" fetchpriority="high">
+        </div>
+        <div class="hero-float-card">
+          <strong>CDO</strong>
+          Augusto Digital
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    Scroll down ↓
+  </div>
+</section>
+
+<!-- ==========================================
+     ABOUT SECTION
+     ========================================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="section-label">About Me</div>
+        <h2>Turning Complex Systems into Elegant Experiences</h2>
+        <p>
+          I have built multiple teams that have delivered multi-modal product experiences in various markets, including consumer, B2B, medical, and automotive. My background in Industrial Design, which I apply today in UX (HCD), drives me to understand and seek out users' unmet needs, and address them in the execution of the product or service.
+        </p>
+        <p>
+          As a lifetime consultant and community builder, I am motivated to learn constantly. These learnings influence customers, clients, and product strategy with a new perspective, enabling a larger impact on the approach and resulting in more meaningful outcomes.
+        </p>
+        <div class="about-highlights">
+          <div class="about-highlight">
+            <div class="about-highlight-icon">✦</div>
+            <h4>Cross-Functional Leader</h4>
+            <p>Building teams across design, product, and engineering to deliver cohesive experiences.</p>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">◎</div>
+            <h4>Human-Centered Design</h4>
+            <p>Industrial Design roots applied to UX — seeking out unmet needs and addressing them.</p>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">△</div>
+            <h4>Strategic Thinker</h4>
+            <p>Blending creativity with business strategy to deliver designs that drive measurable impact.</p>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">◇</div>
+            <h4>Community Builder</h4>
+            <p>MidwestUX 2019 Organizing Chair, O'Reilly reviewer, educator, and mentor.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-image-col fade-up" style="transition-delay: 0.15s;">
+        <div class="about-image-box">
+          <img src="images/about-coaching.jpg" alt="Christy Ennis-Kloote coaching a team" width="1200" height="800" loading="lazy">
+        </div>
+        <div class="about-stat-card">
+          <strong>40%–50%</strong>
+          <span>Service Line Margins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PORTFOLIO / WORK SECTION
+     ========================================== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header fade-up">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2>Exploring My Design Portfolio<br>& Creative Solutions</h2>
+      </div>
+      <p>From connected products and IoT to medical devices and automotive — multi-modal experiences across industries.</p>
+    </div>
+
+    <div class="portfolio-filters fade-up">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Connected Products</button>
+      <button class="filter-btn">Medical</button>
+      <button class="filter-btn">Automotive</button>
+      <button class="filter-btn">Enterprise</button>
+      <button class="filter-btn">Consumer</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Amway Connected Products -->
+      <div class="project-card wide fade-up">
+        <div class="project-card-placeholder">Amway Connected Products — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Connected Products & Strategy</div>
+          <div class="project-card-title">Amway Connected Products</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- Bissell -->
+      <div class="project-card fade-up">
+        <div class="project-card-placeholder">Bissell Robot Vacuum — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Consumer IoT</div>
+          <div class="project-card-title">Bissell Connected Robot Vacuum</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- Automotive -->
+      <div class="project-card fade-up">
+        <div class="project-card-placeholder">Automotive — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Automotive</div>
+          <div class="project-card-title">Automotive Experience Design</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="project-card wide fade-up">
+        <div class="project-card-placeholder">Enterprise Applications — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Enterprise</div>
+          <div class="project-card-title">Enterprise Applications</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- Medallion -->
+      <div class="project-card fade-up">
+        <div class="project-card-placeholder">Medallion Instruments — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Instrumentation</div>
+          <div class="project-card-title">Medallion Instruments</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- JCI Controls -->
+      <div class="project-card fade-up">
+        <div class="project-card-placeholder">JCI Controls — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Building Controls</div>
+          <div class="project-card-title">JCI Controls</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+
+      <!-- Stryker -->
+      <div class="project-card fade-up">
+        <div class="project-card-placeholder">Stryker Products — Image Coming Soon</div>
+        <div class="project-card-overlay">
+          <div class="project-card-category">Medical Devices</div>
+          <div class="project-card-title">Stryker Products</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     EXPERIENCE SECTION
+     ========================================== -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="experience-header fade-up">
+      <div>
+        <div class="section-label">Experience</div>
+        <h2>Explore My Design Journey</h2>
+      </div>
+      <p>Over 20+ years, I've led and grown design teams delivering multi-modal product experiences across consumer, B2B, medical, and automotive markets.</p>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Augusto Digital</div>
+          <div class="career-role">Chief Design Officer</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Design Strategy</span>
+          <span class="career-tag">AI & Automation</span>
+        </div>
+        <div class="career-dates">Apr 2025 – Present</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Leading digital experience strategy at Augusto Digital, grew the overall company book of business by 50% by attracting top talent and expanding offerings. Designing innovative offerings valued by clients and integrating AI and Agentic Automation into workflows for enhanced efficiency. Collaborating with build teams to deliver delightful and practical products, driving company success.
+        </div>
+      </div>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Latticework Consulting</div>
+          <div class="career-role">Peer Advisor</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Coaching</span>
+          <span class="career-tag">UX Teams</span>
+        </div>
+        <div class="career-dates">May 2023 – Present</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Through Latticework, I coach and consult with leaders on removing barriers for designers to do their best work. The breadth of services extend from building in-house UX teams and capabilities to advocacy in an organization. Get teams unstuck typically in the first week with tangible results in the first 30 days.
+        </div>
+      </div>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Augusto Digital</div>
+          <div class="career-role">Experience Design Services Director</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Leadership</span>
+          <span class="career-tag">Growth</span>
+        </div>
+        <div class="career-dates">Aug 2022 – Apr 2025</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Led and grew the Experience Design, Product Services, and Growth Marketing teams, growing headcount to the top-performing service line with reliable best-in-class margins of 40-50%. Developed strategies to enhance service delivery, customer satisfaction, and profit margin goals. Drove growth through innovative marketing and product strategies.
+        </div>
+      </div>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Argenta Park</div>
+          <div class="career-role">Managing Director of Experience Design</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Studio Leadership</span>
+          <span class="career-tag">Design Ops</span>
+        </div>
+        <div class="career-dates">Mar 2022 – Jan 2024</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Applied experience to build and manage a healthy and happy team focused on uniquely creative product experience concepts. Managed all aspects of design operations for the organization, including development, methods, tools, and budget. Worked in partnership to set and implement strategic direction, creating healthier profitability for 14+ team members.
+        </div>
+      </div>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Open Systems Technologies (OST)</div>
+          <div class="career-role">Principal, Design Practice Manager</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Professional Services</span>
+          <span class="career-tag">Practice Growth</span>
+        </div>
+        <div class="career-dates">Jul 2018 – Mar 2022</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Led and managed the Professional Services Design Practice of up to 25+ team members across three geographies. Achieved practice goals including sales, GM%, and utilization. Ownership of thought leadership, market pricing, and delivery strategy across multidisciplinary teams while ensuring culture and business goals aligned through behaviors and outcomes.
+        </div>
+      </div>
+    </div>
+
+    <div class="career-item fade-up" onclick="this.classList.toggle('open')">
+      <div class="career-header">
+        <div>
+          <div class="career-company">Visualhero Design Company</div>
+          <div class="career-role">Director of Experience Design</div>
+        </div>
+        <div class="career-tags">
+          <span class="career-tag">Connected Solutions</span>
+          <span class="career-tag">Product Design</span>
+        </div>
+        <div class="career-dates">Feb 2013 – Dec 2017</div>
+      </div>
+      <div class="career-body">
+        <div class="career-body-inner">
+          Worked closely with clients large and small to discover opportunities in the unknown, delivering meaningful and engaging experiences. Led delivery of shipped products from embedded systems, web apps, mobile experiences, and connected solutions ranging from 3 weeks to 3 years. Managed teams of designers in agile cross-functional environments.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CLIENT LOGOS MARQUEE
+     ========================================== -->
+<section class="logos-section">
+  <div class="container">
+    <div class="logos-header fade-up">
+      <div class="section-label">Trusted By</div>
+      <p class="logos-subtitle">Brands I've designed for across automotive, consumer, medical, enterprise, and more.</p>
+    </div>
+  </div>
+  <div class="logos-marquee-wrapper">
+    <div class="logos-fade logos-fade-left"></div>
+    <div class="logos-fade logos-fade-right"></div>
+    <div class="logos-track">
+      <div class="logos-slide">
+        <span class="logo-item">Ford</span>
+        <span class="logo-item">Corvette</span>
+        <span class="logo-item">Buick</span>
+        <span class="logo-item">Opel</span>
+        <span class="logo-item">Harley-Davidson</span>
+        <span class="logo-item">Indian</span>
+        <span class="logo-item">Freightliner</span>
+        <span class="logo-item">Malibu Boats</span>
+        <span class="logo-item">Mazda</span>
+        <span class="logo-item">Sea Ray</span>
+        <span class="logo-item">John Deere</span>
+        <span class="logo-item">Bissell</span>
+        <span class="logo-item">Chamberlain</span>
+        <span class="logo-item">KitchenAid</span>
+        <span class="logo-item">Meijer</span>
+        <span class="logo-item">Siemens</span>
+        <span class="logo-item">Stryker</span>
+        <span class="logo-item">York</span>
+        <span class="logo-item">Apple</span>
+        <span class="logo-item">Johnson Controls</span>
+        <span class="logo-item">Priority Health</span>
+        <span class="logo-item">Corewell Health</span>
+        <span class="logo-item">UPS</span>
+        <span class="logo-item">Wells Fargo</span>
+      </div>
+      <div class="logos-slide" aria-hidden="true">
+        <span class="logo-item">Ford</span>
+        <span class="logo-item">Corvette</span>
+        <span class="logo-item">Buick</span>
+        <span class="logo-item">Opel</span>
+        <span class="logo-item">Harley-Davidson</span>
+        <span class="logo-item">Indian</span>
+        <span class="logo-item">Freightliner</span>
+        <span class="logo-item">Malibu Boats</span>
+        <span class="logo-item">Mazda</span>
+        <span class="logo-item">Sea Ray</span>
+        <span class="logo-item">John Deere</span>
+        <span class="logo-item">Bissell</span>
+        <span class="logo-item">Chamberlain</span>
+        <span class="logo-item">KitchenAid</span>
+        <span class="logo-item">Meijer</span>
+        <span class="logo-item">Siemens</span>
+        <span class="logo-item">Stryker</span>
+        <span class="logo-item">York</span>
+        <span class="logo-item">Apple</span>
+        <span class="logo-item">Johnson Controls</span>
+        <span class="logo-item">Priority Health</span>
+        <span class="logo-item">Corewell Health</span>
+        <span class="logo-item">UPS</span>
+        <span class="logo-item">Wells Fargo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SERVICES SECTION
+     ========================================== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="fade-up" style="text-align: center; max-width: 640px; margin: 0 auto 0;">
+      <div class="section-label">Services</div>
+      <h2>What I Bring to the Table</h2>
+      <p style="color: var(--color-text-muted); margin-top: 16px;">From hands-on design leadership to strategic consulting — services tailored to where you are in your product journey.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">◈</div>
+        <h3>Experience Design Leadership</h3>
+        <p>Building and leading design teams that deliver multi-platform product experiences across consumer, B2B, medical, and automotive markets.</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay: 0.1s;">
+        <div class="service-icon">⬡</div>
+        <h3>Product Strategy & Roadmaps</h3>
+        <p>Collaborating with product owners and stakeholders to understand problems and offer solutions that balance user needs with business objectives.</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay: 0.2s;">
+        <div class="service-icon">◎</div>
+        <h3>UX Team Coaching</h3>
+        <p>Through Latticework Consulting, I coach leaders on removing barriers for designers, building in-house UX capabilities, and getting teams unstuck fast.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">△</div>
+        <h3>Connected Product Design</h3>
+        <p>Designing IoT and connected solutions that span hardware, software, and mobile — from embedded systems to cloud-connected consumer products.</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay: 0.1s;">
+        <div class="service-icon">⬢</div>
+        <h3>Design Operations</h3>
+        <p>Setting up design ops, methods, tools, and budgets — creating the infrastructure that lets creative teams do their best work sustainably.</p>
+      </div>
+      <div class="service-card fade-up" style="transition-delay: 0.2s;">
+        <div class="service-icon">✦</div>
+        <h3>AI & Agentic Automation</h3>
+        <p>Integrating AI and agentic automation into design workflows and product offerings for enhanced efficiency and innovative client solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CTA BANNER
+     ========================================== -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-card fade-up">
+      <div class="section-label">Let's Work Together</div>
+      <h2>Ready to Start Your Next Project?</h2>
+      <p>Whether you need design leadership, UX coaching, or connected product strategy — let's explore how I can help your team thrive.</p>
+      <a href="#contact" class="btn btn-accent">Let's Talk <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     LATTICEWORK CONSULTING
+     ========================================== -->
+<section class="latticework" id="latticework">
+  <div class="container">
+    <div class="latticework-inner fade-up">
+      <div class="latticework-content">
+        <div class="section-label">Latticework Consulting</div>
+        <h2>Removing Barriers for Designers to Do Their Best Work</h2>
+        <p class="latticework-desc">Through Latticework, I coach and consult with leaders on building in-house UX teams, establishing capabilities, and advocating for design within their organizations.</p>
+        <div class="latticework-results">
+          <div class="latticework-result">
+            <div class="latticework-result-number">1<span>st</span></div>
+            <div class="latticework-result-label">Week to get teams unstuck</div>
+          </div>
+          <div class="latticework-result">
+            <div class="latticework-result-number">30</div>
+            <div class="latticework-result-label">Days to tangible results</div>
+          </div>
+        </div>
+        <a href="mailto:enniskloote@gmail.com" class="btn btn-outline" style="margin-top: 28px;">Learn More <span class="arrow">↗</span></a>
+      </div>
+      <div class="latticework-pillars">
+        <div class="latticework-pillar">
+          <div class="pillar-number">01</div>
+          <h4>Build UX Teams</h4>
+          <p>Stand up in-house UX capabilities from scratch or restructure existing teams for higher impact.</p>
+        </div>
+        <div class="latticework-pillar">
+          <div class="pillar-number">02</div>
+          <h4>Design Advocacy</h4>
+          <p>Establish design's seat at the table — aligning leadership on the value of experience design.</p>
+        </div>
+        <div class="latticework-pillar">
+          <div class="pillar-number">03</div>
+          <h4>Peer Coaching</h4>
+          <p>One-on-one advisory for design leaders navigating growth, team dynamics, and organizational change.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Christy<span>.</span></div>
+        <p class="footer-desc">Experience Designer & Design Leader based in Grand Rapids, MI. Building teams and products that make a meaningful impact.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <div class="footer-links">
+          <a href="#about">About Me</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#experience">Experience</a>
+          <a href="#services">Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Get In Touch</div>
+        <div class="footer-links">
+          <a href="tel:6163226770">(616) 322-6770</a>
+          <a href="mailto:enniskloote@gmail.com">enniskloote@gmail.com</a>
+          <a href="https://linkedin.com/in/enniskloote" target="_blank">LinkedIn</a>
+          <a href="https://enniskloote.com" target="_blank">enniskloote.com</a>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="mailto:enniskloote@gmail.com" class="btn btn-accent" style="font-size: 0.85rem; padding: 12px 24px;">Book A Call <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Christy Ennis-Kloote. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="https://linkedin.com/in/enniskloote" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================
+     SCRIPTS
+     ========================================== -->
+<script>
+// Intersection Observer for fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Filter buttons (visual toggle only for now)
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Navbar background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (window.scrollY > 50) {
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

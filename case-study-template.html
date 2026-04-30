@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TEMPLATE: Replace with project name -->
+<title>Project Name — Christy Ennis-Kloote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   SHARED DESIGN TOKENS (same as index.html)
+   ============================================ */
+:root {
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-text: #3A3A3A;
+  --color-text-muted: #7A7A7A;
+  --color-accent: #D4A853;
+  --color-accent-soft: #F5EDD8;
+  --color-border: #E8E6E1;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --nav-height: 80px;
+  --container-width: 1200px;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-dark); line-height: 1.2; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: 16px;
+}
+.section-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 100px; font-family: var(--font-body);
+  font-size: 0.95rem; font-weight: 500; cursor: pointer; border: none; transition: var(--transition);
+}
+.btn-primary { background: var(--color-dark); color: #fff; }
+.btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+.btn-outline { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-border); }
+.btn-outline:hover { border-color: var(--color-dark); background: var(--color-dark); color: #fff; }
+.btn .arrow { display: inline-block; transition: transform 0.3s ease; }
+.btn:hover .arrow { transform: translate(3px, -3px); }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(250,250,248,0.92); backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06);
+  height: var(--nav-height);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
+.nav-brand span { color: var(--color-accent); }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--color-text-muted); transition: color 0.3s; }
+.nav-links a:hover { color: var(--color-dark); }
+.nav-cta { margin-left: 12px; }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-dark); margin: 5px 0; transition: var(--transition); }
+
+/* ============================================
+   CASE STUDY HERO
+   ============================================ */
+.cs-hero {
+  padding-top: calc(var(--nav-height) + 64px);
+  padding-bottom: 48px;
+}
+.cs-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted);
+  margin-bottom: 32px; transition: color 0.3s;
+}
+.cs-back:hover { color: var(--color-dark); }
+.cs-back .back-arrow { transition: transform 0.3s; }
+.cs-back:hover .back-arrow { transform: translateX(-4px); }
+.cs-title { margin-bottom: 16px; }
+.cs-summary {
+  font-size: 1.15rem; color: var(--color-text-muted);
+  max-width: 680px; line-height: 1.8; margin-bottom: 36px;
+}
+.cs-hero-image {
+  width: 100%; aspect-ratio: 16/8; border-radius: var(--radius);
+  overflow: hidden; background: linear-gradient(135deg, #e8e6e1, #d4d2cd);
+}
+.cs-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.cs-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center;
+  justify-content: center; font-size: 0.95rem; color: var(--color-text-muted);
+}
+
+/* ============================================
+   OVERVIEW BLOCK
+   ============================================ */
+.cs-overview {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-border);
+}
+.cs-overview-grid {
+  display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: start;
+}
+.cs-meta-list { display: flex; flex-direction: column; gap: 24px; }
+.cs-meta-item {}
+.cs-meta-label {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--color-text-muted); margin-bottom: 4px;
+}
+.cs-meta-value { font-size: 0.95rem; color: var(--color-dark); font-weight: 500; }
+.cs-challenge h2 { margin-bottom: 20px; }
+.cs-challenge p {
+  font-size: 1.02rem; color: var(--color-text); line-height: 1.85;
+}
+.cs-challenge p + p { margin-top: 16px; }
+
+/* ============================================
+   PROCESS SECTION
+   ============================================ */
+.cs-process {
+  padding: 80px 0;
+  background: var(--color-surface);
+}
+.cs-process-header {
+  margin-bottom: 48px;
+}
+.cs-process-header p {
+  font-size: 1.02rem; color: var(--color-text-muted);
+  max-width: 600px; margin-top: 12px; line-height: 1.8;
+}
+.cs-process-images {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+}
+.cs-process-img {
+  border-radius: var(--radius-sm); overflow: hidden;
+  aspect-ratio: 4/3; background: linear-gradient(135deg, #e8e6e1, #d4d2cd);
+}
+.cs-process-img img { width: 100%; height: 100%; object-fit: cover; }
+.cs-img-caption {
+  font-size: 0.8rem; color: var(--color-text-muted);
+  margin-top: 10px; text-align: center;
+}
+
+/* ============================================
+   SOLUTION SECTION
+   ============================================ */
+.cs-solution {
+  padding: 80px 0;
+}
+.cs-solution-header { margin-bottom: 48px; }
+.cs-solution-header p {
+  font-size: 1.02rem; color: var(--color-text-muted);
+  max-width: 640px; margin-top: 12px; line-height: 1.8;
+}
+.cs-solution-gallery {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.cs-solution-img {
+  border-radius: var(--radius-sm); overflow: hidden;
+  aspect-ratio: 3/2; background: linear-gradient(135deg, #e8e6e1, #d4d2cd);
+}
+.cs-solution-img.full { grid-column: span 2; aspect-ratio: 16/7; }
+.cs-solution-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ============================================
+   RESULT STAT
+   ============================================ */
+.cs-result {
+  padding: 80px 0;
+  background: var(--color-dark);
+  color: #fff;
+}
+.cs-result-inner {
+  display: flex; align-items: center; gap: 64px;
+}
+.cs-result-stat {
+  flex-shrink: 0; text-align: center; min-width: 200px;
+}
+.cs-result-number {
+  font-family: var(--font-display); font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 700; line-height: 1; color: var(--color-accent);
+}
+.cs-result-unit {
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5); margin-top: 8px;
+}
+.cs-result-narrative {
+  font-size: 1.1rem; line-height: 1.8; color: rgba(255,255,255,0.7);
+}
+.cs-result-narrative strong { color: #fff; font-weight: 600; }
+
+/* ============================================
+   PROJECT NAVIGATION
+   ============================================ */
+.cs-nav {
+  padding: 60px 0;
+  border-top: 1px solid var(--color-border);
+}
+.cs-nav-inner {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cs-nav-link {
+  display: flex; flex-direction: column; gap: 4px;
+  transition: var(--transition);
+}
+.cs-nav-link:hover { transform: translateY(-2px); }
+.cs-nav-dir {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--color-text-muted);
+}
+.cs-nav-title {
+  font-family: var(--font-display); font-size: 1.15rem;
+  font-weight: 600; color: var(--color-dark);
+}
+.cs-nav-link.next { text-align: right; }
+.cs-nav-divider {
+  width: 1px; height: 48px; background: var(--color-border);
+}
+
+/* ============================================
+   FOOTER (minimal for case study)
+   ============================================ */
+.footer {
+  background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 48px 0;
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; }
+.footer-brand span { color: var(--color-accent); }
+.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+
+/* ============================================
+   FADE ANIMATIONS
+   ============================================ */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .cs-overview-grid { grid-template-columns: 1fr; gap: 40px; }
+  .cs-meta-list { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
+  .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: var(--nav-height); left: 0; right: 0; background: var(--color-bg);
+    padding: 24px 32px; border-bottom: 1px solid var(--color-border); gap: 16px;
+  }
+  .cs-process-images { grid-template-columns: 1fr; }
+  .cs-solution-gallery { grid-template-columns: 1fr; }
+  .cs-solution-img.full { grid-column: span 1; }
+  .cs-nav-inner { flex-direction: column; gap: 24px; }
+  .cs-nav-divider { width: 100%; height: 1px; }
+  .cs-nav-link.next { text-align: left; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">Christy<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#about">About Me</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Book A Call <span class="arrow">↗</span></a>
+    </div>
+    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ==========================================
+     CASE STUDY HERO
+     ========================================== -->
+<section class="cs-hero">
+  <div class="container">
+    <a href="index.html#portfolio" class="cs-back fade-up">
+      <span class="back-arrow">←</span> Back to Portfolio
+    </a>
+    <div class="section-label fade-up">
+      <!-- TEMPLATE: Replace with category -->
+      Connected Products & Strategy
+    </div>
+    <h1 class="cs-title fade-up">
+      <!-- TEMPLATE: Replace with project title -->
+      Amway Connected Products
+    </h1>
+    <p class="cs-summary fade-up">
+      <!-- TEMPLATE: Replace with one-liner summary -->
+      Designing a connected product ecosystem that bridges physical products with digital experiences, creating new value for distributors and end customers.
+    </p>
+    <div class="cs-hero-image fade-up">
+      <!-- TEMPLATE: Replace placeholder with <img src="your-image.jpg" alt="Project hero"> -->
+      <div class="cs-placeholder">Hero image — full-width project showcase</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     OVERVIEW
+     ========================================== -->
+<section class="cs-overview">
+  <div class="container">
+    <div class="cs-overview-grid fade-up">
+      <div class="cs-meta-list">
+        <!-- TEMPLATE: Replace values -->
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-value">Amway</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Timeline</div>
+          <div class="cs-meta-value">6 months</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-value">Design Lead</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Team</div>
+          <div class="cs-meta-value">4 designers, 6 engineers</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platforms</div>
+          <div class="cs-meta-value">Mobile, Web, Embedded</div>
+        </div>
+      </div>
+      <div class="cs-challenge">
+        <h2>The Challenge</h2>
+        <!-- TEMPLATE: Replace with challenge paragraphs -->
+        <p>
+          Describe the core problem or opportunity here. What was the client facing? What did users need? What was broken or missing?
+        </p>
+        <p>
+          Add context about constraints, stakeholders, or anything that made this challenge unique and interesting.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PROCESS
+     ========================================== -->
+<section class="cs-process">
+  <div class="container">
+    <div class="cs-process-header fade-up">
+      <div class="section-label">Process</div>
+      <h2>How We Approached It</h2>
+      <!-- TEMPLATE: Replace with process narrative -->
+      <p>
+        Describe your approach briefly — what methods you used, how the team was structured, and the key moments in the design process.
+      </p>
+    </div>
+    <div class="cs-process-images fade-up">
+      <!-- TEMPLATE: Replace placeholders with images -->
+      <div>
+        <div class="cs-process-img">
+          <div class="cs-placeholder">Process image 1</div>
+        </div>
+        <div class="cs-img-caption">Research & Discovery</div>
+      </div>
+      <div>
+        <div class="cs-process-img">
+          <div class="cs-placeholder">Process image 2</div>
+        </div>
+        <div class="cs-img-caption">Wireframes & Flows</div>
+      </div>
+      <div>
+        <div class="cs-process-img">
+          <div class="cs-placeholder">Process image 3</div>
+        </div>
+        <div class="cs-img-caption">Prototyping & Testing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SOLUTION
+     ========================================== -->
+<section class="cs-solution">
+  <div class="container">
+    <div class="cs-solution-header fade-up">
+      <div class="section-label">Solution</div>
+      <h2>What We Delivered</h2>
+      <!-- TEMPLATE: Replace with solution narrative -->
+      <p>
+        Describe what was shipped. What does the final product look like? Why does it work? What makes it special?
+      </p>
+    </div>
+    <div class="cs-solution-gallery fade-up">
+      <!-- TEMPLATE: Replace placeholders. Add class "full" for a full-width image. -->
+      <div class="cs-solution-img full">
+        <div class="cs-placeholder">Full-width solution image — primary product shot</div>
+      </div>
+      <div class="cs-solution-img">
+        <div class="cs-placeholder">Detail image 1</div>
+      </div>
+      <div class="cs-solution-img">
+        <div class="cs-placeholder">Detail image 2</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     RESULT STAT
+     ========================================== -->
+<section class="cs-result">
+  <div class="container">
+    <div class="cs-result-inner fade-up">
+      <div class="cs-result-stat">
+        <!-- TEMPLATE: Replace with your key metric -->
+        <div class="cs-result-number">40%</div>
+        <div class="cs-result-unit">Increase in engagement</div>
+      </div>
+      <div class="cs-result-narrative">
+        <!-- TEMPLATE: Replace with result context -->
+        <p>
+          <strong>Explain the impact here.</strong> What happened after launch? Connect the stat to real business or user value. Even qualitative results work — "adopted across 3 business units" or "shipped ahead of schedule" tells a compelling story.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PROJECT NAVIGATION
+     ========================================== -->
+<section class="cs-nav">
+  <div class="container">
+    <div class="cs-nav-inner">
+      <!-- TEMPLATE: Replace with actual previous/next projects -->
+      <a href="#" class="cs-nav-link prev">
+        <span class="cs-nav-dir">← Previous</span>
+        <span class="cs-nav-title">Stryker Products</span>
+      </a>
+      <div class="cs-nav-divider"></div>
+      <a href="#" class="cs-nav-link next">
+        <span class="cs-nav-dir">Next →</span>
+        <span class="cs-nav-title">Bissell Connected Robot Vacuum</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-brand">Christy<span>.</span></a>
+      <div class="footer-copy">© 2026 Christy Ennis-Kloote. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  document.querySelector('.nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
+});
+</script>
+</body>
+</html>
