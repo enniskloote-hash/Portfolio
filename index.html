@@ -471,6 +471,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 .portfolio-grid .wide { grid-column: span 2; }
 
 .project-card {
+  display: block;
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
@@ -1122,14 +1123,14 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 
     <div class="portfolio-grid">
       <!-- Amway Connected Products -->
-      <div class="project-card wide fade-up">
-        <div class="project-card-placeholder">Amway Connected Products — Image Coming Soon</div>
+      <a href="amway-connected-products-case-study.html" class="project-card wide fade-up">
+        <img src="images/amway-sky.jpg" alt="Amway SKY connected product" class="project-card-image" width="1600" height="979" loading="lazy">
         <div class="project-card-overlay">
           <div class="project-card-category">Connected Products & Strategy</div>
           <div class="project-card-title">Amway Connected Products</div>
         </div>
         <div class="project-card-arrow">↗</div>
-      </div>
+      </a>
 
       <!-- Bissell -->
       <div class="project-card fade-up">
