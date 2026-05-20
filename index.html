@@ -735,15 +735,16 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 .logo-item {
   flex-shrink: 0;
   padding: 0 36px;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-dark);
   opacity: 0.25;
-  white-space: nowrap;
-  letter-spacing: -0.01em;
   transition: opacity 0.4s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+}
+.logo-item img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 .logo-item::after {
   content: '';
@@ -1119,11 +1120,12 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       <button class="filter-btn">Automotive</button>
       <button class="filter-btn">Enterprise</button>
       <button class="filter-btn">Consumer</button>
+      <button class="filter-btn">Applied AI</button>
     </div>
 
     <div class="portfolio-grid">
       <!-- Amway Connected Products -->
-      <a href="amway-connected-products-case-study.html" class="project-card wide fade-up">
+      <a href="amway-connected-products-case-study.html" class="project-card wide fade-up" data-category="Connected Products">
         <img src="images/amway-sky.jpg" alt="Amway SKY connected product" class="project-card-image" width="1600" height="979" loading="lazy">
         <div class="project-card-overlay">
           <div class="project-card-category">Connected Products & Strategy</div>
@@ -1133,7 +1135,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </a>
 
       <!-- Bissell -->
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" data-category="Consumer">
         <div class="project-card-placeholder">Bissell Robot Vacuum — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Consumer IoT</div>
@@ -1143,7 +1145,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </div>
 
       <!-- Automotive -->
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" data-category="Automotive">
         <div class="project-card-placeholder">Automotive — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Automotive</div>
@@ -1153,7 +1155,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </div>
 
       <!-- Enterprise -->
-      <div class="project-card wide fade-up">
+      <div class="project-card wide fade-up" data-category="Enterprise">
         <div class="project-card-placeholder">Enterprise Applications — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Enterprise</div>
@@ -1163,7 +1165,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </div>
 
       <!-- Medallion -->
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" data-category="Enterprise">
         <div class="project-card-placeholder">Medallion Instruments — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Instrumentation</div>
@@ -1173,7 +1175,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </div>
 
       <!-- JCI Controls -->
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" data-category="Enterprise">
         <div class="project-card-placeholder">JCI Controls — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Building Controls</div>
@@ -1183,7 +1185,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       </div>
 
       <!-- Stryker -->
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" data-category="Medical">
         <div class="project-card-placeholder">Stryker Products — Image Coming Soon</div>
         <div class="project-card-overlay">
           <div class="project-card-category">Medical Devices</div>
@@ -1191,6 +1193,16 @@ h4 { font-size: 1.1rem; font-weight: 500; }
         </div>
         <div class="project-card-arrow">↗</div>
       </div>
+
+      <!-- Teaching Teams to Work Differently -->
+      <a href="teaching-teams-AI_casestudy.html" class="project-card wide fade-up" data-category="Applied AI">
+        <img src="images/01_Facilitate.png" alt="Teaching teams to work with AI" class="project-card-image" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-category">Applied AI</div>
+          <div class="project-card-title">Teaching Teams to Work Differently</div>
+        </div>
+        <div class="project-card-arrow">↗</div>
+      </a>
     </div>
   </div>
 </section>
@@ -1339,56 +1351,52 @@ h4 { font-size: 1.1rem; font-weight: 500; }
     <div class="logos-fade logos-fade-right"></div>
     <div class="logos-track">
       <div class="logos-slide">
-        <span class="logo-item">Ford</span>
-        <span class="logo-item">Corvette</span>
-        <span class="logo-item">Buick</span>
-        <span class="logo-item">Opel</span>
-        <span class="logo-item">Harley-Davidson</span>
-        <span class="logo-item">Indian</span>
-        <span class="logo-item">Freightliner</span>
-        <span class="logo-item">Malibu Boats</span>
-        <span class="logo-item">Mazda</span>
-        <span class="logo-item">Sea Ray</span>
-        <span class="logo-item">John Deere</span>
-        <span class="logo-item">Bissell</span>
-        <span class="logo-item">Chamberlain</span>
-        <span class="logo-item">KitchenAid</span>
-        <span class="logo-item">Meijer</span>
-        <span class="logo-item">Siemens</span>
-        <span class="logo-item">Stryker</span>
-        <span class="logo-item">York</span>
-        <span class="logo-item">Apple</span>
-        <span class="logo-item">Johnson Controls</span>
-        <span class="logo-item">Priority Health</span>
-        <span class="logo-item">Corewell Health</span>
-        <span class="logo-item">UPS</span>
-        <span class="logo-item">Wells Fargo</span>
+        <span class="logo-item"><img src="images/logos/ford.svg" alt="Ford"></span>
+        <span class="logo-item"><img src="images/logos/corvette.svg" alt="Corvette"></span>
+        <span class="logo-item"><img src="images/logos/opel.svg" alt="Opel"></span>
+        <span class="logo-item"><img src="images/logos/harley-davidson.svg" alt="Harley-Davidson"></span>
+        <span class="logo-item"><img src="images/logos/indian.svg" alt="Indian"></span>
+        <span class="logo-item"><img src="images/logos/freightliner.svg" alt="Freightliner"></span>
+        <span class="logo-item"><img src="images/logos/malibu-boats.svg" alt="Malibu Boats"></span>
+        <span class="logo-item"><img src="images/logos/mazda.svg" alt="Mazda"></span>
+        <span class="logo-item"><img src="images/logos/sea-ray.svg" alt="Sea Ray"></span>
+        <span class="logo-item"><img src="images/logos/john-deere.svg" alt="John Deere"></span>
+        <span class="logo-item"><img src="images/logos/bissell.svg" alt="Bissell"></span>
+        <span class="logo-item" style="display:none"><img src="images/logos/chamberlain.svg" alt="Chamberlain"></span>
+        <span class="logo-item"><img src="images/logos/kitchenaid.svg" alt="KitchenAid"></span>
+        <span class="logo-item"><img src="images/logos/meijer.svg" alt="Meijer"></span>
+        <span class="logo-item"><img src="images/logos/siemens.svg" alt="Siemens"></span>
+        <span class="logo-item"><img src="images/logos/stryker.svg" alt="Stryker"></span>
+        <span class="logo-item"><img src="images/logos/york.svg" alt="York"></span>
+        <span class="logo-item"><img src="images/logos/apple.svg" alt="Apple"></span>
+        <span class="logo-item"><img src="images/logos/johnson-controls.svg" alt="Johnson Controls"></span>
+        <span class="logo-item"><img src="images/logos/corewell-health.svg" alt="Corewell Health"></span>
+        <span class="logo-item"><img src="images/logos/ups.svg" alt="UPS"></span>
+        <span class="logo-item"><img src="images/logos/wells-fargo.svg" alt="Wells Fargo"></span>
       </div>
       <div class="logos-slide" aria-hidden="true">
-        <span class="logo-item">Ford</span>
-        <span class="logo-item">Corvette</span>
-        <span class="logo-item">Buick</span>
-        <span class="logo-item">Opel</span>
-        <span class="logo-item">Harley-Davidson</span>
-        <span class="logo-item">Indian</span>
-        <span class="logo-item">Freightliner</span>
-        <span class="logo-item">Malibu Boats</span>
-        <span class="logo-item">Mazda</span>
-        <span class="logo-item">Sea Ray</span>
-        <span class="logo-item">John Deere</span>
-        <span class="logo-item">Bissell</span>
-        <span class="logo-item">Chamberlain</span>
-        <span class="logo-item">KitchenAid</span>
-        <span class="logo-item">Meijer</span>
-        <span class="logo-item">Siemens</span>
-        <span class="logo-item">Stryker</span>
-        <span class="logo-item">York</span>
-        <span class="logo-item">Apple</span>
-        <span class="logo-item">Johnson Controls</span>
-        <span class="logo-item">Priority Health</span>
-        <span class="logo-item">Corewell Health</span>
-        <span class="logo-item">UPS</span>
-        <span class="logo-item">Wells Fargo</span>
+        <span class="logo-item"><img src="images/logos/ford.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/corvette.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/opel.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/harley-davidson.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/indian.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/freightliner.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/malibu-boats.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/mazda.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/sea-ray.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/john-deere.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/bissell.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/chamberlain.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/kitchenaid.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/meijer.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/siemens.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/stryker.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/york.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/apple.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/johnson-controls.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/corewell-health.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/ups.svg" alt=""></span>
+        <span class="logo-item"><img src="images/logos/wells-fargo.svg" alt=""></span>
       </div>
     </div>
   </div>
@@ -1553,11 +1561,15 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Filter buttons (visual toggle only for now)
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    const selected = btn.textContent.trim();
+    document.querySelectorAll('.project-card').forEach(card => {
+      const show = selected === 'All' || card.dataset.category === selected;
+      card.style.display = show ? '' : 'none';
+    });
   });
 });
 
