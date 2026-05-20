@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amway Connected Products — Christy Ennis-Kloote</title>
+<title>2014 Corvette Stingray Instrument Cluster — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -23,7 +23,6 @@ body { font-family: var(--font-body); background: var(--color-bg); color: var(--
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 32px; }
-.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
 h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-dark); line-height: 1.2; }
 h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: -0.01em; }
@@ -54,7 +53,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-back:hover .back-arrow { transform: translateX(-4px); }
 .cs-title { margin-bottom: 16px; }
 .cs-summary { font-size: 1.15rem; color: var(--color-text-muted); max-width: 680px; line-height: 1.8; margin-bottom: 36px; }
-.cs-hero-image { width: 100%; aspect-ratio: 16/8; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, #e8e6e1, #d4d2cd); }
+.cs-hero-image { width: 100%; aspect-ratio: 16/8; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, #1a1a1a, #2d2d2d); }
 .cs-hero-image img { width: 100%; height: 100%; object-fit: cover; }
 .cs-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--color-text-muted); }
 .cs-overview { padding: 80px 0; border-top: 1px solid var(--color-border); }
@@ -65,6 +64,14 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-challenge h2 { margin-bottom: 20px; }
 .cs-challenge p { font-size: 1.02rem; color: var(--color-text); line-height: 1.85; }
 .cs-challenge p + p { margin-top: 16px; }
+.cs-modes { padding: 64px 0; background: var(--color-dark); }
+.cs-modes-header { text-align: center; margin-bottom: 48px; }
+.cs-modes-header h2 { color: #fff; }
+.cs-modes-header p { color: rgba(255,255,255,0.6); margin-top: 12px; font-size: 1rem; }
+.cs-modes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cs-mode-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 28px 24px; }
+.cs-mode-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--color-accent); margin-bottom: 10px; }
+.cs-mode-desc { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
 .cs-process { padding: 80px 0; background: var(--color-surface); }
 .cs-process-header { margin-bottom: 48px; }
 .cs-process-header p { font-size: 1.02rem; color: var(--color-text-muted); max-width: 600px; margin-top: 12px; line-height: 1.8; }
@@ -72,6 +79,10 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-process-img { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8e6e1, #d4d2cd); }
 .cs-process-img img { width: 100%; height: 100%; object-fit: cover; }
 .cs-img-caption { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 10px; text-align: center; }
+.cs-pivot { padding: 64px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.cs-pivot-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center; }
+.cs-pivot-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); }
+.cs-pivot-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-weight: 500; color: var(--color-dark); line-height: 1.5; }
 .cs-solution { padding: 80px 0; }
 .cs-solution-header { margin-bottom: 48px; }
 .cs-solution-header p { font-size: 1.02rem; color: var(--color-text-muted); max-width: 640px; margin-top: 12px; line-height: 1.8; }
@@ -105,6 +116,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-overview-grid { grid-template-columns: 1fr; gap: 40px; }
   .cs-meta-list { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
   .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
+  .cs-pivot-inner { grid-template-columns: 1fr; gap: 16px; }
+  .cs-modes-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -113,6 +126,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-process-images { grid-template-columns: 1fr; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
+  .cs-modes-grid { grid-template-columns: 1fr 1fr; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
@@ -143,11 +157,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <a href="index.html#portfolio" class="cs-back fade-up">
       <span class="back-arrow">&larr;</span> Back to Portfolio
     </a>
-    <div class="section-label fade-up">Connected Products, Consumer</div>
-    <h1 class="cs-title fade-up">Amway Connected Products</h1>
-    <p class="cs-summary fade-up">Sky Atmosphere Air Purification Unit, AWS platform integration, and cross-brand accelerator teams</p>
+    <div class="section-label fade-up">Automotive UX &middot; Embedded Systems</div>
+    <h1 class="cs-title fade-up">2014 Chevrolet Corvette Stingray Instrument Cluster</h1>
+    <p class="cs-summary fade-up">Designing a context-aware digital instrument cluster that balanced high-performance driving needs with everyday usability and unmistakable Corvette identity</p>
     <div class="cs-hero-image fade-up">
-      <img src="images/amway-sky.jpg" alt="Amway SKY air purifier — connected product design" width="1600" height="979" loading="eager" fetchpriority="high">
+      <img src="images/2014-chevrolet-corvette-stingray-review-2014.jpg" alt="2014 Chevrolet Corvette Stingray digital instrument cluster" width="970" height="546" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -158,29 +172,57 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="cs-meta-list">
         <div class="cs-meta-item">
           <div class="cs-meta-label">Client</div>
-          <div class="cs-meta-value">Amway</div>
+          <div class="cs-meta-value">Chevrolet / General Motors</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Timeline</div>
-          <div class="cs-meta-value">20 Months, 2015-2017</div>
+          <div class="cs-meta-value">Multi-year vehicle development cycle, launched 2014</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
-          <div class="cs-meta-value">Design Lead, Principal Designer</div>
+          <div class="cs-meta-value">Lead UX Designer / Experience Design Leadership</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Team</div>
-          <div class="cs-meta-value">4 Designers, 6 Engineers, PM &amp; Scrum</div>
+          <div class="cs-meta-value">Cross-functional: UX, UI, embedded engineering, industrial design, HMI &amp; product stakeholders</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Platforms</div>
-          <div class="cs-meta-value">Mobile and Embedded</div>
+          <div class="cs-meta-value">Embedded vehicle systems, digital instrument cluster, HUD</div>
         </div>
       </div>
       <div class="cs-challenge">
         <h2>The Challenge</h2>
-        <p>Sky was the first connected product to launch along with a new AWS platform. This allowed a direct connection to consumers and an unfiltered view from dealers to understand behaviors and how to continuously deliver value while gaining insights. The concept development began in 2015 and was launched in China in 2017.</p>
-        <p>There were complexities in tying services (i.e., authentication, registration, order management) across the organization. Understanding market constraints, such as what data was allowed to be accurately shown. We were the first product to carry forward the efforts to build the AWS platform that other products would also depend on for services such as security and data ponds.</p>
+        <p>The opportunity was to rethink the traditional instrument cluster as a dynamic, driver-centered experience rather than a fixed collection of gauges. Drivers needed instant comprehension in high-speed conditions while still supporting daily driving scenarios. Existing dashboards forced users to interpret dense information under pressure, regardless of driving context — what was missing was an adaptive system that prioritized the right information at the right time.</p>
+        <p>What made this uniquely difficult was the convergence of performance, safety, and emotional brand expectations within a tightly constrained embedded environment — limited processing power, strict automotive safety requirements, and competing priorities from engineering, performance teams, and brand leadership. We also had to balance the needs of experienced performance drivers with broader consumer usability expectations without overwhelming either audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-modes">
+  <div class="container">
+    <div class="cs-modes-header fade-up">
+      <div class="section-label" style="color: rgba(255,255,255,0.4);">Context-Aware Design</div>
+      <h2>Four Driving Modes, One Adaptive System</h2>
+      <p>Information priorities shifted depending on driving conditions — the interface had to know what mattered when.</p>
+    </div>
+    <div class="cs-modes-grid fade-up">
+      <div class="cs-mode-card">
+        <div class="cs-mode-name">Tour</div>
+        <div class="cs-mode-desc">Balanced navigation, comfort data, and everyday driving information for daily usability.</div>
+      </div>
+      <div class="cs-mode-card">
+        <div class="cs-mode-name">Sport</div>
+        <div class="cs-mode-desc">Elevated performance metrics with reduced visual noise for spirited driving conditions.</div>
+      </div>
+      <div class="cs-mode-card">
+        <div class="cs-mode-name">Track</div>
+        <div class="cs-mode-desc">RPM and telemetry in sharp focus — minimal distraction, maximum performance clarity.</div>
+      </div>
+      <div class="cs-mode-card">
+        <div class="cs-mode-name">Weather</div>
+        <div class="cs-mode-desc">Simplified information hierarchy supporting safer driving in low-traction conditions.</div>
       </div>
     </div>
   </div>
@@ -191,21 +233,30 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-process-header fade-up">
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
-      <p>We refined the initial concept from key screens to workflows and vetted them with our development team to confirm backend actions matched the frontend experience. We ran in sprints with quarterly planning with key releases.<br><br><strong>Finding what could be measured and meaningfully presented to end users was a critical piece to gain traction.</strong></p>
+      <p>We framed the cluster as a context-aware system rather than a static interface. Early work mapped how information priorities shifted across modes — identifying which data needed immediate prominence versus secondary access. The team worked across UX, industrial design, and embedded engineering to align visual hierarchy, interaction patterns, and system constraints. <strong>A major focus was reducing cognitive load while preserving flexibility for performance-oriented users.</strong></p>
     </div>
     <div class="cs-process-images fade-up">
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Joint team demo's</div></div>
-        <div class="cs-img-caption">Joint team demo's</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Driver mode concepts</div></div>
+        <div class="cs-img-caption">Driver mode concepts</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">user flows</div></div>
-        <div class="cs-img-caption">user flows</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Cluster wireframes &amp; flows</div></div>
+        <div class="cs-img-caption">Cluster wireframes &amp; flows</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">prototypes</div></div>
-        <div class="cs-img-caption">prototypes</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Visual hierarchy studies</div></div>
+        <div class="cs-img-caption">Visual hierarchy studies</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-pivot">
+  <div class="container">
+    <div class="cs-pivot-inner fade-up">
+      <div class="cs-pivot-label">Pivotal Moment</div>
+      <div class="cs-pivot-quote">"We realized the system shouldn't simply allow customization — it needed to proactively adapt to driver intent automatically. That shift reframed the experience from configurable UI to responsive driving support system."</div>
     </div>
   </div>
 </section>
@@ -215,17 +266,17 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-solution-header fade-up">
       <div class="section-label">Solution</div>
       <h2>What We Delivered</h2>
-      <p>The final product was launched and had multiple releases including extensions to the physical</p>
+      <p>A fully digital instrument cluster capable of adapting layout, hierarchy, and emphasis based on driving mode and driver needs — integrating steering wheel controls, contextual menus, and HUD coordination to minimize distraction. The visual language blended analog performance cues with modern digital clarity, creating an experience that felt unmistakably Corvette.</p>
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
-        <div class="cs-placeholder">Mobile App Onboarding</div>
+        <div class="cs-placeholder">Track mode tachometer-focused layout</div>
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Physical Unit Controls</div>
+        <div class="cs-placeholder">Multi-mode cluster comparisons</div>
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Detail image 2</div>
+        <div class="cs-placeholder">Cockpit overview with HUD integration</div>
       </div>
     </div>
   </div>
@@ -235,11 +286,12 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   <div class="container">
     <div class="cs-result-inner fade-up">
       <div class="cs-result-stat">
-        <div class="cs-result-number">35%+</div>
-        <div class="cs-result-unit">Connectivity</div>
+        <div class="cs-result-number">C7</div>
+        <div class="cs-result-unit">Production Launch · 2014</div>
       </div>
       <div class="cs-result-narrative">
-        <p>The connection with consumers allowed the team to better understand, in real time, how products were being used, so they could make improvements for the next generation.</p>
+        <p>The instrument cluster became a <strong>defining part of the C7 Corvette experience</strong>, demonstrating how embedded UX could support both emotional engagement and functional clarity across four distinct driving modes.</p>
+        <p style="margin-top: 16px;">The work helped establish a more adaptive, software-driven approach to in-vehicle interfaces that continues to influence modern automotive UX patterns — showing that performance and usability are not opposing forces when the system is designed around driver intent.</p>
       </div>
     </div>
   </div>
@@ -248,14 +300,14 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-nav">
   <div class="container">
     <div class="cs-nav-inner">
-      <a href="corewell-health-case-study.html" class="cs-nav-link prev">
+      <a href="amway-connected-products-case-study.html" class="cs-nav-link prev">
         <span class="cs-nav-dir">&larr; Previous</span>
-        <span class="cs-nav-title">Corewell Health Digital Ecosystem</span>
+        <span class="cs-nav-title">Amway Connected Products</span>
       </a>
       <div class="cs-nav-divider"></div>
-      <a href="corvette-instrument-cluster-case-study.html" class="cs-nav-link next">
+      <a href="bissell-connected-robot-vacuum-case-study.html" class="cs-nav-link next">
         <span class="cs-nav-dir">Next &rarr;</span>
-        <span class="cs-nav-title">2014 Corvette Stingray Cluster</span>
+        <span class="cs-nav-title">Bissell Connected Robot Vacuum</span>
       </a>
     </div>
   </div>

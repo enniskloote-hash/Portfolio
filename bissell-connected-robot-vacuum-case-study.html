@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amway Connected Products — Christy Ennis-Kloote</title>
+<title>Bissell Clean Connect Robot Vacuum — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -23,7 +23,6 @@ body { font-family: var(--font-body); background: var(--color-bg); color: var(--
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 32px; }
-.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 32px; }
 h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-dark); line-height: 1.2; }
 h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: -0.01em; }
@@ -33,10 +32,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 100px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; cursor: pointer; border: none; transition: var(--transition); }
 .btn-primary { background: var(--color-dark); color: #fff; }
 .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
-.btn-outline { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-border); }
-.btn-outline:hover { border-color: var(--color-dark); background: var(--color-dark); color: #fff; }
-.btn .arrow { display: inline-block; transition: transform 0.3s ease; }
-.btn:hover .arrow { transform: translate(3px, -3px); }
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,248,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); height: var(--nav-height); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
 .nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
@@ -65,14 +60,23 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-challenge h2 { margin-bottom: 20px; }
 .cs-challenge p { font-size: 1.02rem; color: var(--color-text); line-height: 1.85; }
 .cs-challenge p + p { margin-top: 16px; }
-.cs-process { padding: 80px 0; background: var(--color-surface); }
+.cs-ecosystem { padding: 64px 0; background: var(--color-surface); }
+.cs-ecosystem-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cs-ecosystem-card { border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 32px 28px; }
+.cs-ecosystem-icon { font-size: 1.5rem; margin-bottom: 16px; }
+.cs-ecosystem-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--color-dark); margin-bottom: 10px; }
+.cs-ecosystem-desc { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.7; }
+.cs-process { padding: 80px 0; }
 .cs-process-header { margin-bottom: 48px; }
 .cs-process-header p { font-size: 1.02rem; color: var(--color-text-muted); max-width: 600px; margin-top: 12px; line-height: 1.8; }
 .cs-process-images { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 .cs-process-img { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8e6e1, #d4d2cd); }
-.cs-process-img img { width: 100%; height: 100%; object-fit: cover; }
 .cs-img-caption { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 10px; text-align: center; }
-.cs-solution { padding: 80px 0; }
+.cs-pivot { padding: 64px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.cs-pivot-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center; }
+.cs-pivot-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-accent); }
+.cs-pivot-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-weight: 500; color: var(--color-dark); line-height: 1.5; }
+.cs-solution { padding: 80px 0; background: var(--color-surface); }
 .cs-solution-header { margin-bottom: 48px; }
 .cs-solution-header p { font-size: 1.02rem; color: var(--color-text-muted); max-width: 640px; margin-top: 12px; line-height: 1.8; }
 .cs-solution-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -105,6 +109,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-overview-grid { grid-template-columns: 1fr; gap: 40px; }
   .cs-meta-list { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
   .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
+  .cs-pivot-inner { grid-template-columns: 1fr; gap: 16px; }
+  .cs-ecosystem-inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -113,6 +119,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-process-images { grid-template-columns: 1fr; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
+  .cs-ecosystem-inner { grid-template-columns: 1fr; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
@@ -143,11 +150,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <a href="index.html#portfolio" class="cs-back fade-up">
       <span class="back-arrow">&larr;</span> Back to Portfolio
     </a>
-    <div class="section-label fade-up">Connected Products, Consumer</div>
-    <h1 class="cs-title fade-up">Amway Connected Products</h1>
-    <p class="cs-summary fade-up">Sky Atmosphere Air Purification Unit, AWS platform integration, and cross-brand accelerator teams</p>
+    <div class="section-label fade-up">Connected Products &middot; Consumer IoT &middot; Embedded UX</div>
+    <h1 class="cs-title fade-up">Bissell Clean Connect Robot Vacuum</h1>
+    <p class="cs-summary fade-up">Evolving a hardware-first product into a scalable connected ecosystem spanning embedded interfaces, mobile applications, and a growing family of smart home products</p>
     <div class="cs-hero-image fade-up">
-      <img src="images/amway-sky.jpg" alt="Amway SKY air purifier — connected product design" width="1600" height="979" loading="eager" fetchpriority="high">
+      <img src="images/ICONpet_Robot_Vacuum.webp" alt="Bissell Clean Connect Robot Vacuum" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -158,29 +165,49 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="cs-meta-list">
         <div class="cs-meta-item">
           <div class="cs-meta-label">Client</div>
-          <div class="cs-meta-value">Amway</div>
+          <div class="cs-meta-value">Bissell</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Timeline</div>
-          <div class="cs-meta-value">20 Months, 2015-2017</div>
+          <div class="cs-meta-value">Multi-phase evolution across multiple product generations</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
-          <div class="cs-meta-value">Design Lead, Principal Designer</div>
+          <div class="cs-meta-value">Lead Designer / Experience Design Leadership</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Team</div>
-          <div class="cs-meta-value">4 Designers, 6 Engineers, PM &amp; Scrum</div>
+          <div class="cs-meta-value">Industrial design, embedded engineering, mobile development, manufacturing partners &amp; research</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Platforms</div>
-          <div class="cs-meta-value">Mobile and Embedded</div>
+          <div class="cs-meta-value">Embedded robot interface, connected mobile app, IoT ecosystem</div>
         </div>
       </div>
       <div class="cs-challenge">
         <h2>The Challenge</h2>
-        <p>Sky was the first connected product to launch along with a new AWS platform. This allowed a direct connection to consumers and an unfiltered view from dealers to understand behaviors and how to continuously deliver value while gaining insights. The concept development began in 2015 and was launched in China in 2017.</p>
-        <p>There were complexities in tying services (i.e., authentication, registration, order management) across the organization. Understanding market constraints, such as what data was allowed to be accurately shown. We were the first product to carry forward the efforts to build the AWS platform that other products would also depend on for services such as security and data ponds.</p>
+        <p>Bissell was entering the connected robot vacuum category as consumer expectations for smart home products were rapidly evolving. The initial product generation relied heavily on fixed physical controls and a limited onboard display. As the portfolio matured, the opportunity shifted from designing an isolated device to creating a connected ecosystem supporting mobile interaction, remote control, automation, and a growing family of products.</p>
+        <p>What made this work especially complex was the intersection of physical product design, embedded systems, and emerging connected experiences within a fast-moving category. The initiative required balancing manufacturing realities, white-labeled hardware constraints, and evolving software capabilities — while aligning external manufacturing partners, internal stakeholders, and engineering teams around a shared experience vision that could scale beyond a single product generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-ecosystem">
+  <div class="container">
+    <div class="section-label fade-up">Platform Scope</div>
+    <div class="cs-ecosystem-inner fade-up">
+      <div class="cs-ecosystem-card">
+        <div class="cs-ecosystem-name">Embedded Interface</div>
+        <div class="cs-ecosystem-desc">Onboard controls and display experience for the physical robot — designed for glanceability and intuitive in-moment interaction.</div>
+      </div>
+      <div class="cs-ecosystem-card">
+        <div class="cs-ecosystem-name">Connected Mobile App</div>
+        <div class="cs-ecosystem-desc">Scheduling, remote control, cleaning history, and smart home automation extending the product experience beyond the device.</div>
+      </div>
+      <div class="cs-ecosystem-card">
+        <div class="cs-ecosystem-name">IoT Ecosystem</div>
+        <div class="cs-ecosystem-desc">Scalable interaction frameworks and platform architecture designed to support a growing family of connected Bissell products.</div>
       </div>
     </div>
   </div>
@@ -191,21 +218,30 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-process-header fade-up">
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
-      <p>We refined the initial concept from key screens to workflows and vetted them with our development team to confirm backend actions matched the frontend experience. We ran in sprints with quarterly planning with key releases.<br><br><strong>Finding what could be measured and meaningfully presented to end users was a critical piece to gain traction.</strong></p>
+      <p>We approached the work as a connected ecosystem rather than a standalone device. Ethnographic research sessions in San Francisco — conducted alongside a recruiting and research partner — surfaced real-world cleaning behaviors, smart home expectations, and consumer frustrations that shaped the experience strategy. <strong>Workshops and collaborative feedback sessions helped stakeholders align around user needs, product priorities, and long-term platform opportunities.</strong></p>
     </div>
     <div class="cs-process-images fade-up">
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Joint team demo's</div></div>
-        <div class="cs-img-caption">Joint team demo's</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Ethnographic research synthesis</div></div>
+        <div class="cs-img-caption">Ethnographic research synthesis</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">user flows</div></div>
-        <div class="cs-img-caption">user flows</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Workshop facilitation sessions</div></div>
+        <div class="cs-img-caption">Workshop facilitation sessions</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">prototypes</div></div>
-        <div class="cs-img-caption">prototypes</div>
+        <div class="cs-process-img"><div class="cs-placeholder">Embedded UI concepts</div></div>
+        <div class="cs-img-caption">Embedded UI concepts</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-pivot">
+  <div class="container">
+    <div class="cs-pivot-inner fade-up">
+      <div class="cs-pivot-label">Pivotal Moment</div>
+      <div class="cs-pivot-quote">"A major shift occurred when the organization began viewing the robot vacuum not as a single appliance, but as part of a scalable connected product family — that reframing changed both the experience strategy and how teams collaborated."</div>
     </div>
   </div>
 </section>
@@ -215,17 +251,17 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-solution-header fade-up">
       <div class="section-label">Solution</div>
       <h2>What We Delivered</h2>
-      <p>The final product was launched and had multiple releases including extensions to the physical</p>
+      <p>We evolved the Clean Connect experience from a hardware-driven interaction model into a cohesive connected ecosystem — integrating embedded controls, mobile applications, and scalable interaction patterns that created continuity between the physical product and digital touchpoints. Foundational UX frameworks developed during early concept work were carried forward into later branded product generations.</p>
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
-        <div class="cs-placeholder">Mobile App Onboarding</div>
+        <div class="cs-placeholder">Mobile application scheduling &amp; onboarding flows</div>
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Physical Unit Controls</div>
+        <div class="cs-placeholder">Robot embedded interface concepts</div>
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Detail image 2</div>
+        <div class="cs-placeholder">Ecosystem architecture overview</div>
       </div>
     </div>
   </div>
@@ -235,11 +271,12 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   <div class="container">
     <div class="cs-result-inner fade-up">
       <div class="cs-result-stat">
-        <div class="cs-result-number">35%+</div>
-        <div class="cs-result-unit">Connectivity</div>
+        <div class="cs-result-number">3+</div>
+        <div class="cs-result-unit">Product Generations Influenced</div>
       </div>
       <div class="cs-result-narrative">
-        <p>The connection with consumers allowed the team to better understand, in real time, how products were being used, so they could make improvements for the next generation.</p>
+        <p>The engagement helped position Bissell's robot vacuum offerings for a more connected future by <strong>establishing scalable UX foundations that influenced later product generations</strong>. The work strengthened alignment between physical and digital product teams, introduced more mature user-centered design practices, and helped evolve the organization's approach to connected product development.</p>
+        <p style="margin-top: 16px;">Most importantly, the experience framework was designed to scale alongside the growing product portfolio — a system built not just for launch, but for what the product family would become.</p>
       </div>
     </div>
   </div>
@@ -248,13 +285,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-nav">
   <div class="container">
     <div class="cs-nav-inner">
-      <a href="corewell-health-case-study.html" class="cs-nav-link prev">
+      <a href="corvette-instrument-cluster-case-study.html" class="cs-nav-link prev">
         <span class="cs-nav-dir">&larr; Previous</span>
-        <span class="cs-nav-title">Corewell Health Digital Ecosystem</span>
-      </a>
-      <div class="cs-nav-divider"></div>
-      <a href="corvette-instrument-cluster-case-study.html" class="cs-nav-link next">
-        <span class="cs-nav-dir">Next &rarr;</span>
         <span class="cs-nav-title">2014 Corvette Stingray Cluster</span>
       </a>
     </div>
