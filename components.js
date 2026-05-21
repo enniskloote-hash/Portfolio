@@ -105,6 +105,7 @@
             '<div class="footer-heading">Get In Touch</div>' +
             '<div class="footer-links">' +
               '<a href="https://linkedin.com/in/enniskloote" target="_blank"><i class="ph-bold ph-linkedin-logo"></i> LinkedIn</a>' +
+              '<a href="https://medium.com/@enniskloote" target="_blank"><i class="ph-bold ph-medium-logo"></i> Medium</a>' +
             '</div>' +
             '<div style="margin-top:24px;">' +
               '<a href="mailto:ennis.kloote@gmail.com" class="btn btn-accent" style="font-size:0.85rem;padding:12px 24px;">Reach out <span class="arrow">↗</span></a>' +

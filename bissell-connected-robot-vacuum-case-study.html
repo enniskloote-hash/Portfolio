@@ -40,7 +40,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-title { margin-bottom: 16px; }
 .cs-summary { font-size: 1.15rem; color: var(--color-text-muted); max-width: 680px; line-height: 1.8; margin-bottom: 36px; }
 .cs-hero-image { width: 100%; aspect-ratio: 16/8; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, #e8e6e1, #d4d2cd); }
-.cs-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.cs-hero-image img, .cs-hero-image video { width: 100%; height: 100%; object-fit: cover; }
 .cs-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--color-text-muted); }
 .cs-overview { padding: 80px 0; border-top: 1px solid var(--color-border); }
 .cs-overview-grid { display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: start; }
@@ -117,10 +117,10 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <span class="back-arrow">&larr;</span> Back to Work
     </a>
     <div class="section-label fade-up">Connected Products &middot; Consumer IoT &middot; Embedded UX</div>
-    <h1 class="cs-title fade-up">Bissell Clean Connect Robot Vacuum</h1>
+    <h1 class="cs-title fade-up">Bissell Clean Connect<br>Robot Vacuum</h1>
     <p class="cs-summary fade-up">Evolving a hardware-first product into a scalable connected ecosystem spanning embedded interfaces, mobile applications, and a growing family of smart home products</p>
     <div class="cs-hero-image fade-up">
-      <img src="images/ICONpet_Robot_Vacuum.webp" alt="Bissell Clean Connect Robot Vacuum" loading="eager" fetchpriority="high">
+      <video src="images/Bissell_Hero_Vid.mov" autoplay muted loop playsinline></video>
     </div>
   </div>
 </section>
@@ -188,15 +188,15 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     </div>
     <div class="cs-process-images fade-up">
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Ethnographic research synthesis</div></div>
+        <div class="cs-process-img" style="background: #fff; display: flex; align-items: center; justify-content: center;"><img src="images/Bissell_Testing.png" alt="Ethnographic research synthesis" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"></div>
         <div class="cs-img-caption">Ethnographic research synthesis</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Workshop facilitation sessions</div></div>
+        <div class="cs-process-img"><img src="images/Bissell_Map.JPG" alt="Workshop facilitation sessions" loading="lazy" style="transform: rotate(90deg); width: 100%; height: 100%; object-fit: cover;"></div>
         <div class="cs-img-caption">Workshop facilitation sessions</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Embedded UI concepts</div></div>
+        <div class="cs-process-img"><img src="images/Bissell_Testing2.png" alt="Embedded UI concepts" loading="lazy"></div>
         <div class="cs-img-caption">Embedded UI concepts</div>
       </div>
     </div>
@@ -221,13 +221,13 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
-        <div class="cs-placeholder">Mobile application scheduling &amp; onboarding flows</div>
+        <img src="images/Bissell_Wires.png" alt="Mobile application scheduling & onboarding flows" loading="lazy">
+      </div>
+      <div class="cs-solution-img" style="background: #fff;">
+        <img src="images/Bissell_Gen1.png" alt="Robot embedded interface concepts" loading="lazy">
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Robot embedded interface concepts</div>
-      </div>
-      <div class="cs-solution-img">
-        <div class="cs-placeholder">Ecosystem architecture overview</div>
+        <img src="images/Bissell_IA_GapAssess.png" alt="Ecosystem architecture overview" loading="lazy">
       </div>
     </div>
   </div>
