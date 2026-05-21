@@ -103,7 +103,19 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
+  .cs-process-areas { grid-template-columns: 1fr; }
 }
+.cs-process-areas { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; margin-top: 40px; }
+.cs-process-areas .area-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent); margin-bottom: 8px; }
+.cs-process-areas .area-body { font-size: 0.97rem; line-height: 1.8; color: var(--color-text); }
+.cs-process-callout { background: var(--color-accent-soft); border-left: 3px solid var(--color-accent); border-radius: var(--radius-sm); padding: 24px 28px; margin-top: 40px; margin-bottom: 20px; }
+.cs-process-callout p { font-size: 1.02rem; line-height: 1.85; color: var(--color-text); }
+.cs-artifacts { padding: 80px 0; border-top: 1px solid var(--color-border); }
+.cs-artifacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+.cs-artifact-item { margin: 0; }
+.cs-artifact-item img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--color-border); display: block; }
+.cs-artifact-item figcaption { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 10px; text-align: center; }
+@media (max-width: 768px) { .cs-artifacts-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -115,10 +127,13 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <span class="back-arrow">&larr;</span> Back to Work
     </a>
     <div class="section-label fade-up">Healthcare UX &middot; Enterprise Systems &middot; Digital Transformation</div>
-    <h1 class="cs-title fade-up">Corewell Health Digital Ecosystem Consolidation</h1>
-    <p class="cs-summary fade-up">Unifying 14+ healthcare service lines into a single, patient-centered digital ecosystem following a major organizational merger</p>
+    <h1 class="cs-title fade-up">Corewell Health<br>Digital Ecosystem Consolidation</h1>
+    <p class="cs-summary fade-up">Unifying 14 core service lines and 30+ departments into a single, patient-centered digital ecosystem following a major organizational merger</p>
+    <a href="https://corewellhealth.org/care-and-specialties/primary-care" target="_blank" rel="noopener" class="btn btn-outline fade-up" style="margin-bottom: 36px;">Visit Site <span class="arrow">↗</span></a>
     <div class="cs-hero-image fade-up">
-      <div class="cs-placeholder">Corewell Health — Hero Image Coming Soon</div>
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+        <source src="images/CorewellRecording.mov" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -137,7 +152,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
-          <div class="cs-meta-value">Lead Designer / Experience Design Leadership</div>
+          <div class="cs-meta-value">Experience Design Lead, Program Coordination &amp; Team Development</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Team</div>
@@ -150,8 +165,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       </div>
       <div class="cs-challenge">
         <h2>The Challenge</h2>
-        <p>Following the merger of Beaumont, Spectrum, and Lakeland Health, Corewell Health inherited more than 10,000 pages of disconnected content, overlapping navigation systems, duplicated services, and inconsistent digital patterns across multiple healthcare networks. Patients were struggling to find care information, navigate services, and understand how the newly merged organization connected together.</p>
-        <p>The opportunity was to build clarity, trust, and continuity for millions of patients making healthcare decisions across 14+ service lines — while aligning stakeholder groups from three legacy organizations, each carrying different operational models, governance structures, and strong opinions about how care should be represented online. Accessibility, SEO preservation, healthcare compliance, and significant public scrutiny were all live constraints during an active organizational launch.</p>
+        <p>Following the merger of Beaumont, Spectrum, and Lakeland Health, Corewell Health inherited more than 14,000 pages of disconnected content, overlapping navigation systems, duplicated services, and inconsistent digital patterns across multiple healthcare networks. Patients were struggling to find care information, navigate services, and understand how the newly merged organization connected together.</p>
+        <p>The opportunity was to build clarity, trust, and continuity for millions of patients making healthcare decisions across 14 core service lines and 30+ departments, while aligning stakeholder groups from three legacy organizations, each carrying different operational models, governance structures, and strong opinions about how care should be represented online. Accessibility, SEO preservation, healthcare compliance, and significant public scrutiny were all live constraints during an active organizational launch.</p>
       </div>
     </div>
   </div>
@@ -162,19 +177,40 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-process-header fade-up">
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
-      <p>A phased, systems-oriented approach that started with large-scale audits of content, navigation, patient journeys, and service models — then restructured everything around how patients actually think about finding care. <strong>The organizing principle was patient mental models, not legacy org charts.</strong></p>
+      <p>A phased, systems-oriented approach that started with large-scale audits of content, navigation, patient journeys, and service models, then restructured everything around how patients actually think about finding care. Six service line workstreams ran in parallel at different stages of readiness, which meant the approach had to do two things at once: keep stable work moving and prevent less-defined efforts from stalling the whole program.</p>
+    </div>
+    <div class="cs-process-areas fade-up">
+      <div>
+        <p class="area-title">Sequencing &amp; Prioritization</p>
+        <p class="area-body">Six workstreams (nutrition, surgery, pharmacy, cancer, lab, and wellness) were sequenced by readiness, not by organizational priority. In-flight service lines moved through a workshop → content blocking → review → design pipeline. Exploratory efforts like wellness and lifestyle resources were held in a parking lot until the right inputs existed. The operating principle: finish what's moving before starting what's fuzzy, and build for how consumers think, not for how the org had structured itself internally.</p>
+      </div>
+      <div>
+        <p class="area-title">Cross-Functional Alignment</p>
+        <p class="area-body">The work ran at the intersection of Corewell marketing, UX and IA, content strategy, and technical site mapping teams, each with a different view of what the site should be. Business and clinical needs had to be translated into web structure that patients could actually navigate. When leadership direction shifted between an approval-heavy governance model and a launch-fast approach, keeping the program moving required surfacing hidden assumptions, recommending simpler structures, and establishing a shared commitment to build an initial version and iterate rather than wait for a complete answer.</p>
+      </div>
+      <div>
+        <p class="area-title">Team Leadership &amp; Development</p>
+        <p class="area-body">Team members were managed individually throughout the engagement. Beyond program coordination, the role extended to partnering with Corewell directly on their in-house UX hiring process, helping them identify the right capabilities as they built their own team. On the delivery side, facilitation served as a coaching mechanism: helping designers and stakeholders distinguish between service line content, support resources, and location presentation; breaking large ambiguous decisions into smaller ones; and reframing organizational language into terms that reflected how patients describe their own needs.</p>
+      </div>
+      <div>
+        <p class="area-title">Launch Discipline</p>
+        <p class="area-body">Sensitive or unresolved topics were held in a staging area rather than forced into premature decisions. A "good enough to launch, then iterate" standard was applied wherever the organization was under pressure to move, protecting both delivery momentum and content quality. That discipline helped the team avoid overbuilding early in the program and kept the most important service lines from being blocked by work that wasn't yet ready.</p>
+      </div>
+    </div>
+    <div class="cs-process-callout fade-up">
+      <p>Alignment broke down repeatedly around one question: whether the site should be organized by service line, by location, or by resource type. Each answer reflected a different team's priorities: clinical, operational, and marketing. Rather than letting the debate stall progress, the conversation was redirected to a single question: how does a patient actually look for care? That reframe gave every team a shared lens to make decisions and move forward.</p>
     </div>
     <div class="cs-process-images fade-up">
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Enterprise content audits</div></div>
+        <div class="cs-process-img"><img src="images/Audits.png" alt="Enterprise content audits"></div>
         <div class="cs-img-caption">Enterprise content audits</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Patient journey mapping</div></div>
+        <div class="cs-process-img"><img src="images/Flows.png" alt="Patient journey mapping"></div>
         <div class="cs-img-caption">Patient journey mapping</div>
       </div>
       <div>
-        <div class="cs-process-img"><div class="cs-placeholder">Navigation taxonomy systems</div></div>
+        <div class="cs-process-img"><img src="images/Taxonomy.png" alt="Navigation taxonomy systems"></div>
         <div class="cs-img-caption">Navigation taxonomy systems</div>
       </div>
     </div>
@@ -185,7 +221,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   <div class="container">
     <div class="cs-pivot-inner fade-up">
       <div class="cs-pivot-label">Pivotal Moment</div>
-      <div class="cs-pivot-quote">"We reframed the effort from a website redesign into an ecosystem consolidation initiative centered around patient understanding — and that shift aligned every team around simplification, clarity, and scalability."</div>
+      <div class="cs-pivot-quote">"We reframed the effort from a website redesign into an ecosystem consolidation initiative centered around patient understanding. That shift aligned every team around simplification, clarity, and scalability."</div>
     </div>
   </div>
 </section>
@@ -195,17 +231,17 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-solution-header fade-up">
       <div class="section-label">Solution</div>
       <h2>What We Delivered</h2>
-      <p>A unified digital ecosystem that consolidated more than 10,000 fragmented pages into approximately 1,500 strategically structured experiences — with simplified navigation, standardized service discovery, and a scalable information architecture that reduced duplication and confusion across 14+ healthcare service lines.</p>
+      <p>A unified digital ecosystem that consolidated more than 14,000 fragmented pages into approximately 1,500 strategically structured experiences, with simplified navigation, standardized service discovery, and a scalable information architecture that reduced duplication and confusion across 14 core service lines and 30+ departments.</p>
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
-        <div class="cs-placeholder">Unified navigation system</div>
+        <img src="images/Navigation.png" alt="Unified navigation system">
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Before &amp; after information architecture</div>
+        <img src="images/Mobile.png" alt="Mobile experience">
       </div>
       <div class="cs-solution-img">
-        <div class="cs-placeholder">Enterprise component library</div>
+        <img src="images/Components.png" alt="Enterprise component library">
       </div>
     </div>
   </div>
@@ -215,13 +251,33 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   <div class="container">
     <div class="cs-result-inner fade-up">
       <div class="cs-result-stat">
-        <div class="cs-result-number">10,000+</div>
+        <div class="cs-result-number">14,000+</div>
         <div class="cs-result-unit">Pages &rarr; 1,500 Unified</div>
       </div>
       <div class="cs-result-narrative">
-        <p>The initiative helped transform a fragmented collection of legacy healthcare properties into a <strong>unified, maintainable digital ecosystem supporting 14+ service lines</strong>. Patients gained clearer access to care information while internal teams benefited from stronger governance, improved operational consistency, and a scalable foundation for future digital growth.</p>
-        <p style="margin-top: 16px;">The work demonstrated how experience design leadership can align large organizations around shared systems, language, and patient-centered decision making — even through significant organizational change.</p>
+        <p>The initiative helped transform a fragmented collection of legacy healthcare properties into a <strong>unified, maintainable digital ecosystem supporting 14 core service lines and 30+ departments</strong>. Patients gained clearer access to care information while internal teams benefited from stronger governance, improved operational consistency, and a scalable foundation for future digital growth.</p>
+        <p style="margin-top: 16px;">The people impact extended beyond the deliverable. Partnering with Corewell on their in-house UX hiring helped them build the internal capability to sustain and evolve the system long after the engagement ended, a measure of success that the page count alone doesn't capture.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-artifacts">
+  <div class="container">
+    <div class="section-label fade-up">Artifacts</div>
+    <div class="cs-artifacts-grid fade-up">
+      <figure class="cs-artifact-item">
+        <img src="images/Audits.png" alt="Enterprise content audits">
+        <figcaption>Enterprise content audits</figcaption>
+      </figure>
+      <figure class="cs-artifact-item">
+        <img src="images/Flows.png" alt="Patient journey mapping">
+        <figcaption>Patient journey mapping</figcaption>
+      </figure>
+      <figure class="cs-artifact-item">
+        <img src="images/Taxonomy.png" alt="Navigation taxonomy systems">
+        <figcaption>Navigation taxonomy systems</figcaption>
+      </figure>
     </div>
   </div>
 </section>

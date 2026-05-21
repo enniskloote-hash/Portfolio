@@ -98,7 +98,13 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
+  .cs-process-areas { grid-template-columns: 1fr; }
 }
+.cs-process-areas { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; margin-top: 40px; }
+.cs-process-areas .area-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent); margin-bottom: 8px; }
+.cs-process-areas .area-body { font-size: 0.97rem; line-height: 1.8; color: var(--color-text); }
+.cs-process-callout { background: var(--color-accent-soft); border-left: 3px solid var(--color-accent); border-radius: var(--radius-sm); padding: 24px 28px; margin-top: 40px; margin-bottom: 20px; }
+.cs-process-callout p { font-size: 1.02rem; line-height: 1.85; color: var(--color-text); }
 </style>
 </head>
 <body>
@@ -111,7 +117,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     </a>
     <div class="section-label fade-up">Connected Products, Consumer</div>
     <h1 class="cs-title fade-up">Amway Connected Products</h1>
-    <p class="cs-summary fade-up">Sky Atmosphere Air Purification Unit, AWS platform integration, and cross-brand accelerator teams</p>
+    <p class="cs-summary fade-up">Leading design across four active connected product teams, establishing the platform standards, engagement models, and governance practices that made a new connected product ecosystem possible at scale.</p>
     <div class="cs-hero-image fade-up">
       <img src="images/amway-sky.jpg" alt="Amway SKY air purifier — connected product design" width="1600" height="979" loading="eager" fetchpriority="high">
     </div>
@@ -132,11 +138,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
-          <div class="cs-meta-value">Design Lead, Principal Designer</div>
+          <div class="cs-meta-value">Design Lead, Connected Products Accelerator</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Team</div>
-          <div class="cs-meta-value">4 Designers, 6 Engineers, PM &amp; Scrum</div>
+          <div class="cs-meta-value">4 Product Teams, Cross-functional Agile Delivery</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Platforms</div>
@@ -145,8 +151,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       </div>
       <div class="cs-challenge">
         <h2>The Challenge</h2>
-        <p>Sky was the first connected product launched on a new AWS platform — giving the team direct visibility into how consumers and dealers actually used the product in the field. Concept development began in 2015 and launched in China in 2017.</p>
-        <p>The work involved significant cross-org complexity: tying authentication, registration, and order management together across multiple internal systems, while navigating market-specific constraints on what data could be surfaced to users. Sky was also the foundational product for the AWS platform that other connected products would later depend on for shared services like security and data infrastructure.</p>
+        <p>The work at Amway wasn't limited to a single product. As design lead within the connected products accelerator group, the role spanned four active product teams, each running in agile cycles with their own roadmaps, engineering constraints, and delivery timelines. Sky, the first connected product launched on a new AWS platform, anchored the work. But the broader challenge was building the infrastructure for how design operated across a growing connected product portfolio.</p>
+        <p>Coordinating across four teams meant managing competing priorities without direct authority over any of them. Each team operated independently but depended on shared services (authentication, data infrastructure, design standards) that the accelerator group was responsible for defining. Regional market constraints, shifting program definitions, and the need to align leadership, product, and delivery teams that didn't always share the same view of what the work required added continuous pressure to every sprint cycle.</p>
       </div>
     </div>
   </div>
@@ -157,7 +163,28 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-process-header fade-up">
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
-      <p>We refined the initial concept from key screens to full workflows and vetted each with the development team to confirm backend capabilities matched the frontend design. Work ran in sprints with quarterly planning and staged releases.<br><br><strong>A significant design challenge was identifying which product data was actually meaningful to consumers — not just what was technically available, but what would be useful enough to change behavior.</strong></p>
+      <p>The accelerator model required building operating infrastructure alongside the product itself: design work that would make four teams more effective, not just one. Work ran in sprints with quarterly planning across the portfolio, with Sky serving as the platform proving ground for patterns that other products would inherit.</p>
+    </div>
+    <div class="cs-process-areas fade-up">
+      <div>
+        <p class="area-title">Standards &amp; Platform Foundation</p>
+        <p class="area-body">Developed an accelerator playbook and design standards to create consistency across connected product experiences. Defined engagement models that clarified how the accelerator group collaborated with each product team, setting expectations for when and how design participated in sprint cycles.</p>
+      </div>
+      <div>
+        <p class="area-title">Governance &amp; Organizational Alignment</p>
+        <p class="area-body">Facilitated decision-making between leadership, product, and delivery teams across the portfolio. Created visibility practices between innovation pipeline initiatives and active delivery teams to surface conflicts between roadmap aspirations and sprint capacity before they became blockers.</p>
+      </div>
+      <div>
+        <p class="area-title">Delivery &amp; Quality Practices</p>
+        <p class="area-body">Introduced content development workflows that reduced rework by surfacing alignment gaps earlier in the process. Led usability testing efforts that educated teams on QA practices and evaluation standards. Coordinated post-launch planning across product, support, deployment, and security stakeholders.</p>
+      </div>
+      <div>
+        <p class="area-title">Market Integration &amp; Discovery</p>
+        <p class="area-body">Defined integration approaches for the China launch and future regional expansion. Facilitated research and discovery for next-generation capabilities while helping teams adapt to shifting program definitions and evolving requirements without losing delivery momentum.</p>
+      </div>
+    </div>
+    <div class="cs-process-callout fade-up">
+      <p>When one product team pushed for a distinctive mobile menu treatment, holding the shared pattern was the right call, not to limit creativity, but because those underlying UI elements were shared across the entire house of branded apps. Deviating there would have added development overhead that rippled across every product in the portfolio, not just one. The unique direction wasn't central to the product experience, and protecting cross-portfolio velocity outweighed the differentiation. Making that case with the team, and reaching alignment on it, was part of what operating as an accelerator required.</p>
     </div>
     <div class="cs-process-images fade-up">
       <div>
@@ -181,7 +208,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-solution-header fade-up">
       <div class="section-label">Solution</div>
       <h2>What We Delivered</h2>
-      <p>The product launched in China and went through multiple release cycles, including extensions that connected the digital experience to physical product controls.</p>
+      <p>Sky launched in China in 2017 and went through multiple release cycles, including extensions that connected the digital experience to physical product controls. The more durable outcome was the operating model the accelerator work established: design standards, engagement practices, and governance structures that subsequent connected products could build from rather than reinvent from scratch.</p>
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
@@ -205,7 +232,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
         <div class="cs-result-unit">Connectivity</div>
       </div>
       <div class="cs-result-narrative">
-        <p>The connection with consumers allowed the team to better understand, in real time, how products were being used, so they could make improvements for the next generation.</p>
+        <p>Sky's launch gave the team real-time visibility into how consumers and dealers actually used a connected product in the field, something that hadn't been possible before. The accelerator infrastructure the work established meant that subsequent products could move faster, benefit from shared standards, and coordinate more effectively across teams from the start rather than solving the same problems independently.</p>
       </div>
     </div>
   </div>
