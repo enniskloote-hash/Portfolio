@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teaching Teams to Work Differently — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================
    SHARED DESIGN TOKENS
@@ -19,7 +19,7 @@
   --color-accent: #D4A853;
   --color-accent-soft: #F5EDD8;
   --color-border: #E8E6E1;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --nav-height: 80px;
   --container-width: 1200px;
@@ -65,24 +65,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .btn .arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translate(3px, -3px); }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(250,250,248,0.92); backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06);
-  height: var(--nav-height);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-.nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
-.nav-brand span { color: var(--color-accent); }
-.nav-links { display: flex; align-items: center; gap: 36px; }
-.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--color-text-muted); transition: color 0.3s; }
-.nav-links a:hover { color: var(--color-dark); }
-.nav-cta { margin-left: 12px; }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-dark); margin: 5px 0; transition: var(--transition); }
 
 /* ============================================
    CASE STUDY HERO
@@ -92,11 +74,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   padding-bottom: 48px;
 }
 .cs-back {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted);
-  margin-bottom: 32px; transition: color 0.3s;
+  margin-bottom: 16px; transition: color 0.3s;
 }
-.cs-back:hover { color: var(--color-dark); }
+.cs-back:hover { color: var(--color-dark); text-decoration: underline; }
 .cs-back .back-arrow { transition: transform 0.3s; }
 .cs-back:hover .back-arrow { transform: translateX(-4px); }
 .cs-title { margin-bottom: 16px; }
@@ -156,37 +138,36 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   max-width: 600px; margin-top: 12px; line-height: 1.8;
 }
 
-/* Beat layout: alternating image + text */
-.cs-beat {
+/* Beat layout: 3-column across full width */
+.cs-beats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  margin-bottom: 72px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: start;
 }
-.cs-beat:last-child { margin-bottom: 0; }
-.cs-beat.reverse { direction: rtl; }
-.cs-beat.reverse > * { direction: ltr; }
-
+.cs-beat {
+  display: flex;
+  flex-direction: column;
+}
 .cs-beat-image {
   border-radius: var(--radius); overflow: hidden;
   aspect-ratio: 4/3; background: linear-gradient(135deg, #e8e6e1, #d4d2cd);
+  margin-bottom: 28px;
 }
 .cs-beat-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.cs-beat-content {}
 .cs-beat-number {
   font-family: var(--font-display);
-  font-size: 4rem; font-weight: 700; line-height: 1;
-  color: var(--color-accent-soft); margin-bottom: -8px;
+  font-size: 3rem; font-weight: 700; line-height: 1;
+  color: var(--color-accent-soft); margin-bottom: -4px;
   user-select: none;
 }
 .cs-beat-content h3 {
-  font-size: 1.4rem; font-weight: 600; margin-bottom: 16px;
+  font-size: 1.2rem; font-weight: 600; margin-bottom: 12px;
   color: var(--color-dark);
 }
 .cs-beat-content p {
-  font-size: 1rem; color: var(--color-text); line-height: 1.85;
+  font-size: 0.97rem; color: var(--color-text); line-height: 1.85;
 }
 .cs-beat-content p + p { margin-top: 12px; }
 
@@ -291,16 +272,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-nav-link.next { text-align: right; }
 .cs-nav-divider { width: 1px; height: 48px; background: var(--color-border); }
 
-/* ============================================
-   FOOTER
-   ============================================ */
-.footer {
-  background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 48px 0;
-}
-.footer-inner { display: flex; justify-content: space-between; align-items: center; }
-.footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; }
-.footer-brand span { color: var(--color-accent); }
-.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
 
 /* ============================================
    FADE ANIMATIONS
@@ -318,46 +289,20 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-overview-grid { grid-template-columns: 1fr; gap: 40px; }
   .cs-meta-list { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
   .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
-  .cs-beat { grid-template-columns: 1fr; gap: 32px; }
-  .cs-beat.reverse { direction: ltr; }
+  .cs-beats-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: block; }
-  .nav-links.open {
-    display: flex; flex-direction: column; position: absolute;
-    top: var(--nav-height); left: 0; right: 0; background: var(--color-bg);
-    padding: 24px 32px; border-bottom: 1px solid var(--color-border); gap: 16px;
-  }
+  .cs-beats-grid { grid-template-columns: 1fr; gap: 48px; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ==========================================
-     NAVIGATION
-     ========================================== -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-brand">Christy<span>.</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html#about">About Me</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact" class="btn btn-primary nav-cta">Book A Call <span class="arrow">↗</span></a>
-    </div>
-    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
 <!-- ==========================================
      CASE STUDY HERO
@@ -365,7 +310,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-hero">
   <div class="container">
     <a href="index.html#portfolio" class="cs-back fade-up">
-      <span class="back-arrow">←</span> Back to Portfolio
+      <span class="back-arrow">←</span> Back to Work
     </a>
     <div class="section-label fade-up">
       AI Integration &amp; Design Leadership
@@ -374,7 +319,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       Teaching Teams to Work Differently
     </h1>
     <p class="cs-summary fade-up">
-      Facilitating structured conversations, mapping where AI genuinely fits, and leading real product work — so teams don't just understand what's changing, they know exactly how to move.
+      Facilitating structured conversations, mapping where AI genuinely fits, and leading real product work. So teams don't just understand what's changing, they know exactly how to move.
     </p>
     <div class="cs-hero-image fade-up">
       <img src="images/AI_UX_1_Delight.png" alt="Team engaged in an AI workshop session">
@@ -407,7 +352,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Deliverables</div>
-          <div class="cs-meta-value">Prioritized intervention maps, shipped product interfaces, codified design standards</div>
+          <div class="cs-meta-value">Prioritized intervention maps, shipped prototypes or PoCs, codified design standards</div>
         </div>
       </div>
       <div class="cs-challenge">
@@ -416,7 +361,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
           The conversation around AI has outpaced most teams' ability to act on it. Leaders know it matters. Their teams feel the pressure. But generic frameworks and vendor promises don't answer the real question: <em>what do we actually change, in what order, and how do we trust ourselves to get it right?</em>
         </p>
         <p>
-          The gap isn't information — it's translation. Someone has to help teams see their own workflows clearly enough to know where AI can genuinely intervene. And then someone has to go first: modeling what it looks like to build and ship inside this new reality, not just advise from a distance. That's the work. Not prescribing a future, but mapping a path and walking it alongside the team.
+          Most teams have plenty of information about AI. What they lack is a clear read on their own workflows. Someone has to help them see where the friction actually lives and which interventions are worth pursuing. And then someone has to go first: modeling the work inside this shift, not just advising on it from outside.
         </p>
       </div>
     </div>
@@ -432,61 +377,64 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="section-label">Process</div>
       <h2>How the Work Unfolds</h2>
       <p>
-        Across client engagements and internal product work, the approach moves through the same three beats — each one building on the last, each one producing something a team can act on.
+        Across client engagements and internal product work, the approach moves through the same three beats, each one building on the last and producing something a team can act on.
       </p>
     </div>
 
-    <!-- Beat 1: Facilitate -->
-    <div class="cs-beat fade-up">
-      <div class="cs-beat-image">
-        <img src="images/01_Facilitate.png" alt="Structured facilitation session">
-      </div>
-      <div class="cs-beat-content">
-        <div class="cs-beat-number">01</div>
-        <h3>Facilitate the Conversation</h3>
-        <p>
-          Before any team can work differently, they have to see their current work clearly. I design and run structured workshops — built around a pre-call to align on goals, and a live working session to map actual workflows, surface friction, and identify where AI could make a real difference.
-        </p>
-        <p>
-          This isn't brainstorming. It's disciplined translation: taking what a team already knows about their work and making the intervention opportunities visible. Every session ends with a shipped artifact — a prioritized map of quick wins and longer plays, ranked by ROI and feasibility, ready to act on the next morning.
-        </p>
-      </div>
-    </div>
+    <div class="cs-beats-grid fade-up">
 
-    <!-- Beat 2: Map -->
-    <div class="cs-beat reverse fade-up">
-      <div class="cs-beat-image">
-        <img src="images/02_Workshop.png" alt="AI intervention map and prioritization output">
+      <!-- Beat 1: Facilitate -->
+      <div class="cs-beat">
+        <div class="cs-beat-image">
+          <img src="images/01_Facilitate.png" alt="Structured facilitation session">
+        </div>
+        <div class="cs-beat-content">
+          <div class="cs-beat-number">01</div>
+          <h3>Facilitate the Conversation</h3>
+          <p>
+            Before any team can work differently, they have to see their current work clearly. I design and run structured workshops built around a pre-call to align on goals, then a live working session to map actual workflows, surface friction, and identify where AI could make a real difference.
+          </p>
+          <p>
+            It's disciplined translation: taking what a team already knows about their work and making the intervention opportunities visible. Every session ends with artifacts: a sketch of the flows we ranked highest and a prioritized map of quick wins and longer plays, ranked by ROI and feasibility.
+          </p>
+        </div>
       </div>
-      <div class="cs-beat-content">
-        <div class="cs-beat-number">02</div>
-        <h3>Map a Path They Can Follow</h3>
-        <p>
-          The output of good facilitation isn't a slide deck — it's a clear, specific, actionable map. Teams leave knowing which workflows to change first, what tools are worth the friction of adoption, and how to sequence the shift so it doesn't overwhelm their capacity.
-        </p>
-        <p>
-          Because the format is productized and repeatable, every engagement delivers the same quality of clarity regardless of industry or team size. The map is theirs — built from their real work, not generic best practice — and designed to be extended by the team without me in every future decision.
-        </p>
-      </div>
-    </div>
 
-    <!-- Beat 3: Build -->
-    <div class="cs-beat fade-up">
-      <div class="cs-beat-image">
-        <img src="images/03_CoWork_Show.png" alt="Shipped product interface and design system">
+      <!-- Beat 2: Map -->
+      <div class="cs-beat">
+        <div class="cs-beat-image">
+          <img src="images/02_Workshop.png" alt="AI intervention map and prioritization output">
+        </div>
+        <div class="cs-beat-content">
+          <div class="cs-beat-number">02</div>
+          <h3>Map a Path They Can Follow</h3>
+          <p>
+            Teams recieve within days with a clear map documented report: which workflows to change first, which tools are worth adopting, and how to sequence the shift so the change is manageable.
+          </p>
+          <p>
+            Because the format is productized and repeatable, every engagement delivers the same quality of clarity regardless of industry or team size. The map is built from the team's real work and owned by them, designed to be extended without needing me in every future decision.
+          </p>
+        </div>
       </div>
-      <div class="cs-beat-content">
-        <div class="cs-beat-number">03</div>
-        <h3>Build It Alongside the Team</h3>
-        <p>
-          Advising is only half the job. The other half is demonstrating what working differently actually looks like by doing it — leading real product work where AI is woven into the workflow, not bolted on at the end.
-        </p>
-        <p>
-          On a disaster-relief marketplace serving nonprofits coordinating in-kind donations under pressure, this meant end-to-end design from research through shipped interface — with the brand system built directly into the product so every touchpoint reinforced credibility without adding cognitive load. And it meant codifying standards so the team could extend the product on-brand, independently, long after the engagement ended.
-        </p>
-      </div>
-    </div>
 
+      <!-- Beat 3: Build -->
+      <div class="cs-beat">
+        <div class="cs-beat-image">
+          <img src="images/03_CoWork_Show.png" alt="Shipped product interface and design system">
+        </div>
+        <div class="cs-beat-content">
+          <div class="cs-beat-number">03</div>
+          <h3>Build It Alongside the Team</h3>
+          <p>
+            Advice without demonstration doesn't build trust or capability. Leading real product work, where AI is part of how the work gets done and not just a topic being discussed, shows teams what the shift actually looks like in practice.
+          </p>
+          <p>
+            With AI product development democratized through teams in some accounts, I find offering the brand system built directly into the environment as a skill makes the matching workflows even morecredible and clear. Design standards were codified for multiple clients so the team could extend the product independently, long after the engagement ended.
+          </p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -497,9 +445,9 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   <div class="container">
     <div class="cs-pullquote-inner">
       <blockquote>
-        "The goal isn't to hand a team a new tool. It's to help them trust their own judgment about when and how to use it."
+        "I was expecting a back-and-forth meeting. Instead, we walked away with a clear visual understanding of our process, bottlenecks, and priorities."
       </blockquote>
-      <cite>— Christy Ennis-Kloote</cite>
+      <cite>— Real Client Quote</cite>
     </div>
   </div>
 </section>
@@ -513,23 +461,26 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="section-label">What Gets Delivered</div>
       <h2>A Practice, Not Just a Project</h2>
       <p>
-        Clients and teams don't just receive a deliverable — they come away with a new way of looking at their work. The facilitation format produces immediate, actionable clarity. The product work models what it looks like to ship inside the shift. Together, they build organizational muscle for working differently over time.
+        Clients leave with something they can act on immediately and a clearer view of their own work. The facilitation produces a specific, prioritized map of where to start. The visualizations show what this shift actually looks like. Both together build real capability, not a one-time deliverable that gets filed away.
       </p>
     </div>
     <div class="cs-solution-gallery fade-up">
       <div class="cs-solution-img full">
-        <img src="images/02_Workshop.png" alt="Workshop output and AI intervention planning">
+        <img src="images/AI_workflow.png" alt="AI-automated bid and custom quote workflow diagram">
+      </div>
+    </div>
+    <div class="cs-img-caption" style="margin-bottom: 20px;">AI workflow mapping &amp; automation design</div>
+    <div class="cs-solution-gallery fade-up">
+      <div class="cs-solution-img">
+        <img src="images/Prioritization.png" alt="Quick wins prioritization matrix by growth impact and speed to MVP">
       </div>
       <div class="cs-solution-img">
-        <img src="images/01_Facilitate.png" alt="Workflow mapping and prioritization framework">
-      </div>
-      <div class="cs-solution-img">
-        <img src="images/03_CoWork_Show.png" alt="Shipped product design and embedded brand system">
+        <img src="images/Brand_Tokens.png" alt="Brand color tokens and design system reference">
       </div>
     </div>
     <div style="margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px;">
-      <div class="cs-img-caption">Workflow mapping &amp; AI intervention planning</div>
-      <div class="cs-img-caption">Shipped product design &amp; embedded brand system</div>
+      <div class="cs-img-caption">Prioritization Matrix</div>
+      <div class="cs-img-caption">Brand Guide and Tokens</div>
     </div>
   </div>
 </section>
@@ -542,15 +493,14 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-result-inner fade-up">
       <div class="cs-result-stat">
         <!-- Replace [#] with your real metric — Rumbles run, teams reached, orgs served, etc. -->
-        <div class="cs-result-number">[#]</div>
+        <div class="cs-result-number">8+</div>
         <div class="cs-result-unit">Teams Moved Forward</div>
       </div>
       <div class="cs-result-narrative">
         <p>
-          <strong>Teams leave knowing what to change and why — not someday, but next week.</strong> Whether the engagement is a structured facilitation workshop or embedded product leadership, the outcome is the same: a team that has been shown a path and helped to take the first steps. The frameworks are repeatable. The artifacts are actionable. And the product work stands as proof that shipping well inside a shifting practice is not only possible — it's the standard.
-        </p>
+          <strong>Teams leave knowing what to change and why, with a specific plan for where to start rather than a vague mandate to figure it out.</strong> The work builds real capability, not just a one-time deliverable. By facilitating the conversation, mapping a clear path, and building alongside teams, they learn to trust their own judgment about how to use AI as part of their work, not just what it can do in theory.
         <p style="margin-top: 16px;">
-          [Add a specific outcome here — number of Rumbles run, notable client win, or a metric from the marketplace launch.]
+          I have had more than one team realize year over year the savings by building their own custom solution vs. buying an off the shelf tool, and the facilitation and mapping work was key to helping them see that clearly and make the case for building internally.
         </p>
       </div>
     </div>
@@ -563,30 +513,19 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-nav">
   <div class="container">
     <div class="cs-nav-inner">
-      <a href="#" class="cs-nav-link prev">
+      <a href="bissell-connected-robot-vacuum-case-study.html" class="cs-nav-link prev">
         <span class="cs-nav-dir">← Previous</span>
-        <span class="cs-nav-title">Project Name</span>
+        <span class="cs-nav-title">Bissell Clean Connect</span>
       </a>
       <div class="cs-nav-divider"></div>
-      <a href="#" class="cs-nav-link next">
+      <a href="corewell-health-case-study.html" class="cs-nav-link next">
         <span class="cs-nav-dir">Next →</span>
-        <span class="cs-nav-title">Project Name</span>
+        <span class="cs-nav-title">Corewell Health Digital Ecosystem</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ==========================================
-     FOOTER
-     ========================================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <a href="index.html" class="footer-brand">Christy<span>.</span></a>
-      <div class="footer-copy">© 2026 Christy Ennis-Kloote. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
@@ -594,9 +533,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
-});
 </script>
+<script src="components.js"></script>
 </body>
 </html>

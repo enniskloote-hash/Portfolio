@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Workflow Rumbles — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================
    SHARED DESIGN TOKENS (same as index.html)
@@ -19,7 +19,7 @@
   --color-accent: #D4A853;
   --color-accent-soft: #F5EDD8;
   --color-border: #E8E6E1;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --nav-height: 80px;
   --container-width: 1200px;
@@ -65,24 +65,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .btn .arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translate(3px, -3px); }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(250,250,248,0.92); backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06);
-  height: var(--nav-height);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-.nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
-.nav-brand span { color: var(--color-accent); }
-.nav-links { display: flex; align-items: center; gap: 36px; }
-.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--color-text-muted); transition: color 0.3s; }
-.nav-links a:hover { color: var(--color-dark); }
-.nav-cta { margin-left: 12px; }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-dark); margin: 5px 0; transition: var(--transition); }
 
 /* ============================================
    CASE STUDY HERO
@@ -92,11 +74,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   padding-bottom: 48px;
 }
 .cs-back {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted);
-  margin-bottom: 32px; transition: color 0.3s;
+  margin-bottom: 16px; transition: color 0.3s;
 }
-.cs-back:hover { color: var(--color-dark); }
+.cs-back:hover { color: var(--color-dark); text-decoration: underline; }
 .cs-back .back-arrow { transition: transform 0.3s; }
 .cs-back:hover .back-arrow { transform: translateX(-4px); }
 .cs-title { margin-bottom: 16px; }
@@ -240,18 +222,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   width: 1px; height: 48px; background: var(--color-border);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
-.footer {
-  background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 48px 0;
-}
-.footer-inner {
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; }
-.footer-brand span { color: var(--color-accent); }
-.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
 
 /* ============================================
    FADE ANIMATIONS
@@ -271,43 +241,17 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: block; }
-  .nav-links.open {
-    display: flex; flex-direction: column; position: absolute;
-    top: var(--nav-height); left: 0; right: 0; background: var(--color-bg);
-    padding: 24px 32px; border-bottom: 1px solid var(--color-border); gap: 16px;
-  }
   .cs-process-images { grid-template-columns: 1fr; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ==========================================
-     NAVIGATION
-     ========================================== -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-brand">Christy<span>.</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html#about">About Me</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact" class="btn btn-primary nav-cta">Book A Call <span class="arrow">↗</span></a>
-    </div>
-    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
 <!-- ==========================================
      CASE STUDY HERO
@@ -315,7 +259,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-hero">
   <div class="container">
     <a href="index.html#portfolio" class="cs-back fade-up">
-      <span class="back-arrow">←</span> Back to Portfolio
+      <span class="back-arrow">←</span> Back to Work
     </a>
     <div class="section-label fade-up">
       AI Strategy &amp; Facilitation
@@ -364,10 +308,10 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="cs-challenge">
         <h2>The Challenge</h2>
         <p>
-          Every team knows AI matters. Most are drowning in think pieces, vendor pitches, and generic frameworks that never quite map to how their organization actually works. The real gap isn't awareness — it's translation. Leaders need someone who can help them see their own workflows clearly enough to know where AI can genuinely intervene.
+          Every team knows AI matters. Most are buried in think pieces, vendor pitches, and generic frameworks that never quite match how their organization actually works. What's missing is someone who can look at their specific workflows and show them where AI can actually help — and what to do about it first.
         </p>
         <p>
-          The challenge is that this kind of clarity can't be delivered in a slide deck. It has to be built in real time, with the people who live inside the work — surfacing the friction points, the repetitive decisions, the places where a well-placed tool could multiply capacity or remove drag. Generic AI advice doesn't land. It has to be theirs.
+          That clarity doesn't come from a slide deck. It has to be built in real time, with the people who live inside the work — surfacing the friction points, the repetitive decisions, the places where a well-placed tool could multiply capacity or cut drag. The output has to be specific enough to act on, which means it has to be built from their work, not borrowed from someone else's.
         </p>
       </div>
     </div>
@@ -383,7 +327,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
       <p>
-        The Rumble format was designed to be structured enough to produce a real artifact, and loose enough to follow the energy of the room. Every engagement moves through the same three phases — align, map, prioritize — but the content is entirely driven by the client's actual workflows.
+        The Rumble format is structured enough to guarantee a real artifact at the end, and open enough to go where the work actually is. Every engagement moves through the same three phases — align, map, prioritize — but the content comes entirely from the client's actual workflows, not a predetermined template.
       </p>
     </div>
     <div class="cs-process-images fade-up">
@@ -452,7 +396,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       </div>
       <div class="cs-result-narrative">
         <p>
-          <strong>Clients leave with something they can act on the next day.</strong> Each Rumble produces a prioritized intervention map tied to the team's real workflows — not a generic roadmap, but a specific set of next steps ranked by ROI and feasibility. Because the format is productized, every engagement delivers consistent value while adapting to the unique constraints of each team. [Add a notable client win or outcome here.]
+          <strong>Clients leave with something they can act on the next day.</strong> Each Rumble produces a prioritized intervention map built from the team's actual workflows — specific next steps ranked by ROI and feasibility, ready to execute. Because the format is productized, every engagement delivers the same quality of output while adapting to the constraints of each team. [Add a notable client win or outcome here.]
         </p>
       </div>
     </div>
@@ -478,17 +422,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   </div>
 </section>
 
-<!-- ==========================================
-     FOOTER
-     ========================================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <a href="index.html" class="footer-brand">Christy<span>.</span></a>
-      <div class="footer-copy">© 2026 Christy Ennis-Kloote. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
@@ -496,9 +429,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
-});
 </script>
+<script src="components.js"></script>
 </body>
 </html>

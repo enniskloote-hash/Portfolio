@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disaster-Relief Marketplace — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================
    SHARED DESIGN TOKENS (same as index.html)
@@ -19,7 +19,7 @@
   --color-accent: #D4A853;
   --color-accent-soft: #F5EDD8;
   --color-border: #E8E6E1;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --nav-height: 80px;
   --container-width: 1200px;
@@ -65,24 +65,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .btn .arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translate(3px, -3px); }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(250,250,248,0.92); backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06);
-  height: var(--nav-height);
-}
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-.nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
-.nav-brand span { color: var(--color-accent); }
-.nav-links { display: flex; align-items: center; gap: 36px; }
-.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--color-text-muted); transition: color 0.3s; }
-.nav-links a:hover { color: var(--color-dark); }
-.nav-cta { margin-left: 12px; }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-dark); margin: 5px 0; transition: var(--transition); }
 
 /* ============================================
    CASE STUDY HERO
@@ -92,11 +74,11 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   padding-bottom: 48px;
 }
 .cs-back {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted);
-  margin-bottom: 32px; transition: color 0.3s;
+  margin-bottom: 16px; transition: color 0.3s;
 }
-.cs-back:hover { color: var(--color-dark); }
+.cs-back:hover { color: var(--color-dark); text-decoration: underline; }
 .cs-back .back-arrow { transition: transform 0.3s; }
 .cs-back:hover .back-arrow { transform: translateX(-4px); }
 .cs-title { margin-bottom: 16px; }
@@ -240,18 +222,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   width: 1px; height: 48px; background: var(--color-border);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
-.footer {
-  background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 48px 0;
-}
-.footer-inner {
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; }
-.footer-brand span { color: var(--color-accent); }
-.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
 
 /* ============================================
    FADE ANIMATIONS
@@ -271,43 +241,17 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-result-inner { flex-direction: column; text-align: center; gap: 32px; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: block; }
-  .nav-links.open {
-    display: flex; flex-direction: column; position: absolute;
-    top: var(--nav-height); left: 0; right: 0; background: var(--color-bg);
-    padding: 24px 32px; border-bottom: 1px solid var(--color-border); gap: 16px;
-  }
   .cs-process-images { grid-template-columns: 1fr; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ==========================================
-     NAVIGATION
-     ========================================== -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-brand">Christy<span>.</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html#about">About Me</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact" class="btn btn-primary nav-cta">Book A Call <span class="arrow">↗</span></a>
-    </div>
-    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
 <!-- ==========================================
      CASE STUDY HERO
@@ -315,7 +259,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 <section class="cs-hero">
   <div class="container">
     <a href="index.html#portfolio" class="cs-back fade-up">
-      <span class="back-arrow">←</span> Back to Portfolio
+      <span class="back-arrow">←</span> Back to Work
     </a>
     <div class="section-label fade-up">
       Product Design &amp; Brand Systems
@@ -367,7 +311,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
           The platform serves as a disaster-relief network — a place where nonprofits coordinate in-kind donations under pressure. These are users who have no margin for confusion. When they're in the product, something has gone wrong in the world, and they need to move fast. Low trust or high friction in the interface isn't a UX inconvenience — it's a mission failure.
         </p>
         <p>
-          The product had to earn credibility on contact. That meant the brand system and the UX couldn't exist in separate lanes — every element of the interface needed to reinforce trust, reduce cognitive load, and support complex matching workflows without making those workflows feel complex. The additional constraint: building in a way that lets the team extend the product independently, without me in every decision.
+          The product had to earn credibility on contact. The brand system and the UX had to be designed together — every interface decision made with the full system in view, so the matching workflows could be complex under the hood without feeling that way to users under stress. The additional constraint: building in a way that lets the team extend the product independently, without me in every decision.
         </p>
       </div>
     </div>
@@ -421,7 +365,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="section-label">Solution</div>
       <h2>What We Delivered</h2>
       <p>
-        A shipped marketplace where the brand system is baked into the product — not applied after the fact. Every touchpoint reinforces credibility without announcing itself. The design standards were codified so the team can extend the product on-brand, without requiring a designer in the room for every decision.
+        A shipped marketplace where the brand system is built into the product from the start. The visual and interaction language are the same thing — so credibility is structural, not cosmetic. Design standards were codified so the team can extend the product on-brand, without needing a designer in the room for every decision.
       </p>
     </div>
     <div class="cs-solution-gallery fade-up">
@@ -478,17 +422,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   </div>
 </section>
 
-<!-- ==========================================
-     FOOTER
-     ========================================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <a href="index.html" class="footer-brand">Christy<span>.</span></a>
-      <div class="footer-copy">© 2026 Christy Ennis-Kloote. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
@@ -496,9 +429,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
-});
 </script>
+<script src="components.js"></script>
 </body>
 </html>

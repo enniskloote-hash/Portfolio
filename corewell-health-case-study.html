@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corewell Health Digital Ecosystem — Christy Ennis-Kloote</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
   --color-bg: #FAFAF8; --color-surface: #FFFFFF; --color-dark: #1A1A1A;
   --color-text: #3A3A3A; --color-text-muted: #7A7A7A; --color-accent: #D4A853;
   --color-accent-soft: #F5EDD8; --color-border: #E8E6E1;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --nav-height: 80px; --container-width: 1200px;
   --radius: 16px; --radius-sm: 8px;
@@ -37,19 +37,9 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .btn-outline:hover { border-color: var(--color-dark); background: var(--color-dark); color: #fff; }
 .btn .arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .arrow { transform: translate(3px, -3px); }
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,250,248,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); height: var(--nav-height); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
-.nav-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
-.nav-brand span { color: var(--color-accent); }
-.nav-links { display: flex; align-items: center; gap: 36px; }
-.nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--color-text-muted); transition: color 0.3s; }
-.nav-links a:hover { color: var(--color-dark); }
-.nav-cta { margin-left: 12px; }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-dark); margin: 5px 0; transition: var(--transition); }
 .cs-hero { padding-top: calc(var(--nav-height) + 64px); padding-bottom: 48px; }
-.cs-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); margin-bottom: 32px; transition: color 0.3s; }
-.cs-back:hover { color: var(--color-dark); }
+.cs-back { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); margin-bottom: 16px; transition: color 0.3s; }
+.cs-back:hover { color: var(--color-dark); text-decoration: underline; }
 .cs-back .back-arrow { transition: transform 0.3s; }
 .cs-back:hover .back-arrow { transform: translateX(-4px); }
 .cs-title { margin-bottom: 16px; }
@@ -98,11 +88,6 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-nav-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--color-dark); }
 .cs-nav-link.next { text-align: right; }
 .cs-nav-divider { width: 1px; height: 48px; background: var(--color-border); }
-.footer { background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 48px 0; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; }
-.footer-brand { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; }
-.footer-brand span { color: var(--color-accent); }
-.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
 .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 1024px) {
@@ -112,41 +97,22 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-pivot-inner { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: block; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--color-bg); padding: 24px 32px; border-bottom: 1px solid var(--color-border); gap: 16px; }
   .cs-process-images { grid-template-columns: 1fr; }
   .cs-solution-gallery { grid-template-columns: 1fr; }
   .cs-solution-img.full { grid-column: span 1; }
   .cs-nav-inner { flex-direction: column; gap: 24px; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-brand">Christy<span>.</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html#about">About Me</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact" class="btn btn-primary nav-cta">Book A Call <span class="arrow">&#8599;</span></a>
-    </div>
-    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
 
 <section class="cs-hero">
   <div class="container">
     <a href="index.html#portfolio" class="cs-back fade-up">
-      <span class="back-arrow">&larr;</span> Back to Portfolio
+      <span class="back-arrow">&larr;</span> Back to Work
     </a>
     <div class="section-label fade-up">Healthcare UX &middot; Enterprise Systems &middot; Digital Transformation</div>
     <h1 class="cs-title fade-up">Corewell Health Digital Ecosystem Consolidation</h1>
@@ -185,7 +151,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
       <div class="cs-challenge">
         <h2>The Challenge</h2>
         <p>Following the merger of Beaumont, Spectrum, and Lakeland Health, Corewell Health inherited more than 10,000 pages of disconnected content, overlapping navigation systems, duplicated services, and inconsistent digital patterns across multiple healthcare networks. Patients were struggling to find care information, navigate services, and understand how the newly merged organization connected together.</p>
-        <p>The opportunity was not simply redesigning a website. It was building clarity, trust, and continuity for millions of patients navigating healthcare decisions across 14+ service lines — while multiple stakeholder groups across legacy systems carried different operational models, governance structures, and perspectives on how care should be represented online. Accessibility, SEO preservation, healthcare compliance, and significant public visibility all shaped the work alongside an active organizational launch.</p>
+        <p>The opportunity was to build clarity, trust, and continuity for millions of patients making healthcare decisions across 14+ service lines — while aligning stakeholder groups from three legacy organizations, each carrying different operational models, governance structures, and strong opinions about how care should be represented online. Accessibility, SEO preservation, healthcare compliance, and significant public scrutiny were all live constraints during an active organizational launch.</p>
       </div>
     </div>
   </div>
@@ -196,7 +162,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
     <div class="cs-process-header fade-up">
       <div class="section-label">Process</div>
       <h2>How We Approached It</h2>
-      <p>A phased, systems-oriented approach focused on simplifying complexity while building alignment across the organization. We began with large-scale audits of content, navigation, patient journeys, and service models — then restructured everything around clearer patient mental models. <strong>The goal was not to preserve legacy organizational structures, but to surface what patients actually needed.</strong></p>
+      <p>A phased, systems-oriented approach that started with large-scale audits of content, navigation, patient journeys, and service models — then restructured everything around how patients actually think about finding care. <strong>The organizing principle was patient mental models, not legacy org charts.</strong></p>
     </div>
     <div class="cs-process-images fade-up">
       <div>
@@ -276,23 +242,13 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <a href="index.html" class="footer-brand">Christy<span>.</span></a>
-      <div class="footer-copy">&copy; 2026 Christy Ennis-Kloote. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.06)' : 'none';
-});
 </script>
+<script src="components.js"></script>
 </body>
 </html>
