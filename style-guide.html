@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Guide — Christy Ennis-Kloote Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
+<style>
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-text: #3A3A3A;
+  --color-text-muted: #7A7A7A;
+  --color-accent: #D4A853;
+  --color-accent-soft: #F5EDD8;
+  --color-border: #E8E6E1;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --nav-height: 80px;
+  --section-padding: 120px;
+  --container-width: 1200px;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  :root { --section-padding: 80px; }
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ============================================
+   STYLE GUIDE LAYOUT
+   ============================================ */
+.sg-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 32px;
+  z-index: 1000;
+}
+.sg-nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.sg-nav-brand span { color: var(--color-accent); }
+.sg-nav-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.sg-nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+.sg-nav-links a:hover { color: var(--color-dark); }
+
+.sg-body {
+  padding-top: calc(var(--nav-height) + 60px);
+  padding-bottom: 120px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Section scaffold */
+.sg-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.sg-section:last-child { border-bottom: none; }
+
+.sg-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.sg-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--color-dark);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.sg-section-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+.sg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+.sg-col { flex: 1; min-width: 200px; }
+
+/* Code callout */
+.sg-code {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  background: var(--color-accent-soft);
+  color: var(--color-dark);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.sg-spec {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+.sg-spec strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ============================================
+   HERO / PAGE HEADER
+   ============================================ */
+.sg-hero {
+  padding: calc(var(--nav-height) + 80px) 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.sg-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-soft) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.sg-hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+.sg-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+.sg-hero h1 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.sg-hero p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* ============================================
+   COLORS
+   ============================================ */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+.color-swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+.color-swatch-block {
+  height: 96px;
+}
+.color-swatch-info {
+  padding: 12px 14px;
+  background: var(--color-surface);
+}
+.color-swatch-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 2px;
+}
+.color-swatch-var {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+.color-swatch-hex {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   TYPOGRAPHY SPECIMENS
+   ============================================ */
+.type-specimen {
+  padding: 32px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+.type-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h1.specimen { font-family: var(--font-display); font-size: clamp(2.25rem, 4.5vw, 4.125rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--color-dark); }
+h2.specimen { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--color-dark); }
+h3.specimen { font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 500; line-height: 1.2; color: var(--color-dark); }
+h4.specimen { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; line-height: 1.2; color: var(--color-dark); }
+.body-large { font-size: 1.1rem; line-height: 1.8; color: var(--color-text); }
+.body-default { font-size: 0.95rem; line-height: 1.75; color: var(--color-text); }
+.body-small { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-muted); }
+.caption { font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); }
+.eyebrow { font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-accent); }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+.section-label::before {
+  content: '•';
+  color: var(--color-accent);
+  font-size: 1.1em;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.btn:hover .arrow { transform: translate(3px, -3px); }
+
+.btn-primary {
+  background: var(--color-dark);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1.5px solid var(--color-border);
+}
+.btn-outline:hover {
+  border-color: var(--color-dark);
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+.btn-accent:hover {
+  background: #c49a45;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   TAGS / CHIPS
+   ============================================ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--color-accent-soft);
+  color: var(--color-dark);
+}
+.tag-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+}
+.tag-outline:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+/* ============================================
+   CARDS — LIGHT
+   ============================================ */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.card:hover { border-color: var(--color-accent); }
+
+.card-accent-line {
+  position: relative;
+  overflow: hidden;
+}
+.card-accent-line::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.card-accent-line:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+}
+.card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+.card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================
+   CARDS — DARK (project style)
+   ============================================ */
+.dark-card-wrap {
+  background: var(--color-dark);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.project-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #2a2a2a;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.project-card:hover { transform: translateY(-4px); }
+
+.project-card-image {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+  transition: transform 0.5s ease;
+}
+.project-card:hover .project-card-image { transform: scale(1.05); }
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.project-card:hover .project-card-overlay { opacity: 1; }
+
+.project-card-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+.project-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.project-card-arrow {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: var(--transition);
+}
+.project-card:hover .project-card-arrow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   CAREER / ACCORDION ITEM
+   ============================================ */
+.career-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  background: var(--color-surface);
+  transition: var(--transition);
+  overflow: hidden;
+}
+.career-item:hover { border-color: var(--color-accent); }
+.career-item.open { border-color: var(--color-accent); }
+
+.career-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 32px;
+  cursor: pointer;
+  position: relative;
+}
+.career-company {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+.career-role {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+.career-dates {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.career-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.career-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.career-item.open .career-body { max-height: 400px; }
+.career-body-inner {
+  padding: 0 32px 28px;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+.career-body-inner ul { list-style: disc; padding-left: 18px; }
+.career-body-inner li { margin-bottom: 6px; }
+
+/* ============================================
+   RESULT / STAT CALLOUT (dark)
+   ============================================ */
+.result-block {
+  background: var(--color-dark);
+  border-radius: var(--radius);
+  padding: 60px 48px;
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+.result-number {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+.result-unit {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+.result-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+}
+.result-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ============================================
+   CTA CARD
+   ============================================ */
+.cta-card {
+  background: var(--color-dark);
+  border-radius: 24px;
+  padding: 80px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 60%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+.cta-card .eyebrow-dark {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+.cta-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.cta-card p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   NAVIGATION (full replica)
+   ============================================ */
+.nav-demo {
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+}
+.nav-brand span { color: var(--color-accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--color-dark); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-highlight {
+  background: var(--color-accent);
+  color: var(--color-dark) !important;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+.nav-highlight:hover { background: #c49a45; }
+.nav-highlight::after { display: none !important; }
+
+/* ============================================
+   STATS STRIP
+   ============================================ */
+.stats-strip {
+  background: var(--color-accent);
+  border-radius: var(--radius);
+  padding: 36px 48px;
+  display: flex;
+  gap: 0;
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+  border-right: 1px solid rgba(26,26,26,0.18);
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-dark);
+}
+.stat-number span { color: #fff; }
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(26,26,26,0.55);
+  margin-top: 8px;
+}
+
+/* ============================================
+   IMAGE PLACEHOLDER
+   ============================================ */
+.img-placeholder {
+  background: linear-gradient(135deg, #e8e6e1 0%, #d4d2cd 100%);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   ABOUT HIGHLIGHT ROW
+   ============================================ */
+.about-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--color-border);
+}
+.about-highlight:last-child { border-bottom: 1px solid var(--color-border); }
+.about-highlight-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.about-highlight-text strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 2px;
+}
+.about-highlight-text span {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   META / CASE STUDY SIDEBAR
+   ============================================ */
+.cs-meta-item { margin-bottom: 28px; }
+.cs-meta-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+.cs-meta-value {
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+/* ============================================
+   SPACING SCALE DISPLAY
+   ============================================ */
+.spacing-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.spacing-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.spacing-visual {
+  background: var(--color-accent);
+  width: 16px;
+  border-radius: 3px;
+}
+.spacing-val {
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   SHADOW SAMPLES
+   ============================================ */
+.shadow-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   GRID DEMOS
+   ============================================ */
+.grid-demo-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.grid-demo-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.grid-cell {
+  background: var(--color-accent-soft);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  font-size: 0.82rem;
+  color: var(--color-dark);
+  font-weight: 500;
+  text-align: center;
+}
+.grid-cell.span-2 { grid-column: span 2; }
+.grid-cell.dark {
+  background: #2a2a2a;
+  border-color: #444;
+  color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 768px) {
+  .grid-demo-3 { grid-template-columns: 1fr; }
+  .grid-demo-2 { grid-template-columns: 1fr; gap: 32px; }
+  .result-block { flex-direction: column; gap: 32px; padding: 40px 28px; }
+  .stats-strip { flex-direction: column; padding: 28px 32px; gap: 20px; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(26,26,26,0.18); padding: 16px 0; }
+  .stat-item:last-child { border-bottom: none; }
+  .cta-card { padding: 48px 28px; }
+  .sg-nav-links { display: none; }
+  .career-header { grid-template-columns: 1fr; gap: 12px; }
+  .color-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sg-nav">
+  <div class="sg-nav-brand">Style Guide <span>•</span></div>
+  <nav class="sg-nav-links">
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#navigation">Navigation</a>
+    <a href="#components">Components</a>
+    <a href="#layout">Layout</a>
+  </nav>
+</nav>
+
+<div class="sg-body">
+
+  <!-- HERO -->
+  <header class="sg-hero">
+    <div class="container">
+      <p class="sg-hero-eyebrow">Design System</p>
+      <h1>Portfolio <em>Style Guide</em></h1>
+      <p>The complete visual language for the Christy Ennis-Kloote portfolio. Use this as a reference when building new pages, case studies, or adjacent projects.</p>
+    </div>
+  </header>
+
+  <!-- ==================== COLORS ==================== -->
+  <section class="sg-section" id="colors">
+    <div class="container">
+      <p class="sg-section-label">Foundation</p>
+      <h2 class="sg-section-title">Color Palette</h2>
+      <p class="sg-section-desc">All colors are defined as CSS custom properties on <code>:root</code>. Always use the variable — never hardcode hex values.</p>
+
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#FAFAF8;border-bottom:1px solid #E8E6E1;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Background</div>
+            <div class="color-swatch-var">--color-bg</div>
+            <div class="color-swatch-hex">#FAFAF8</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#FFFFFF;border-bottom:1px solid #E8E6E1;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Surface</div>
+            <div class="color-swatch-var">--color-surface</div>
+            <div class="color-swatch-hex">#FFFFFF</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#1A1A1A;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Dark</div>
+            <div class="color-swatch-var">--color-dark</div>
+            <div class="color-swatch-hex">#1A1A1A</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#3A3A3A;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Text</div>
+            <div class="color-swatch-var">--color-text</div>
+            <div class="color-swatch-hex">#3A3A3A</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#7A7A7A;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Text Muted</div>
+            <div class="color-swatch-var">--color-text-muted</div>
+            <div class="color-swatch-hex">#7A7A7A</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#D4A853;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Accent Gold</div>
+            <div class="color-swatch-var">--color-accent</div>
+            <div class="color-swatch-hex">#D4A853</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#F5EDD8;border-bottom:1px solid #E8E6E1;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Accent Soft</div>
+            <div class="color-swatch-var">--color-accent-soft</div>
+            <div class="color-swatch-hex">#F5EDD8</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#c49a45;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Accent Hover</div>
+            <div class="color-swatch-var">(no variable)</div>
+            <div class="color-swatch-hex">#C49A45</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#E8E6E1;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Border</div>
+            <div class="color-swatch-var">--color-border</div>
+            <div class="color-swatch-hex">#E8E6E1</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background:#2a2a2a;"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Card Dark</div>
+            <div class="color-swatch-var">(no variable)</div>
+            <div class="color-swatch-hex">#2A2A2A</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;">
+        <p class="sg-section-label" style="margin-bottom:16px;">Usage Notes</p>
+        <div class="sg-row">
+          <div class="sg-col">
+            <div class="type-specimen" style="padding:20px;">
+              <div class="type-label">On Light Backgrounds</div>
+              <p class="sg-spec"><strong>Text:</strong> --color-text (#3A3A3A)<br><strong>Secondary text:</strong> --color-text-muted (#7A7A7A)<br><strong>Borders:</strong> --color-border (#E8E6E1)<br><strong>Accent highlights:</strong> --color-accent</p>
+            </div>
+          </div>
+          <div class="sg-col">
+            <div class="type-specimen" style="padding:20px;background:var(--color-dark);">
+              <div class="type-label" style="color:var(--color-accent);border-color:rgba(255,255,255,0.1);">On Dark Backgrounds</div>
+              <p class="sg-spec" style="color:rgba(255,255,255,0.6);"><strong style="color:rgba(255,255,255,0.9);">Primary text:</strong> #FFFFFF<br><strong style="color:rgba(255,255,255,0.9);">Body text:</strong> rgba(255,255,255,0.7)<br><strong style="color:rgba(255,255,255,0.9);">Muted text:</strong> rgba(255,255,255,0.5)<br><strong style="color:rgba(255,255,255,0.9);">Borders:</strong> rgba(255,255,255,0.15)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TYPOGRAPHY ==================== -->
+  <section class="sg-section" id="typography">
+    <div class="container">
+      <p class="sg-section-label">Foundation</p>
+      <h2 class="sg-section-title">Typography</h2>
+      <p class="sg-section-desc">Two typefaces. <strong>Libre Baskerville</strong> (serif) for all headings and display text. <strong>DM Sans</strong> (sans-serif) for all body copy, UI labels, and navigation.</p>
+
+      <div class="type-specimen">
+        <div class="type-label">Display — Libre Baskerville</div>
+        <h1 class="specimen">The quick brown fox</h1>
+        <p class="sg-spec"><strong>Font:</strong> Libre Baskerville · <strong>Size:</strong> clamp(2.25rem, 4.5vw, 4.125rem) · <strong>Weight:</strong> 600 · <strong>Line-height:</strong> 1.2 · <strong>Letter-spacing:</strong> -0.02em</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">H2 — Section Heading</div>
+        <h2 class="specimen">Design that drives impact</h2>
+        <p class="sg-spec"><strong>Font:</strong> Libre Baskerville · <strong>Size:</strong> clamp(2rem, 4vw, 3.2rem) · <strong>Weight:</strong> 600 · <strong>Line-height:</strong> 1.2 · <strong>Letter-spacing:</strong> -0.01em</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">H3 — Subsection / Card Title</div>
+        <h3 class="specimen">Product Strategy & Vision</h3>
+        <p class="sg-spec"><strong>Font:</strong> Libre Baskerville · <strong>Size:</strong> clamp(1.3rem, 2vw, 1.6rem) · <strong>Weight:</strong> 500 · <strong>Line-height:</strong> 1.2</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">H4 — Label Heading</div>
+        <h4 class="specimen">Key Responsibilities</h4>
+        <p class="sg-spec"><strong>Font:</strong> Libre Baskerville · <strong>Size:</strong> 1.1rem · <strong>Weight:</strong> 500</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Body Large — Hero / Intro</div>
+        <p class="body-large">I partner with organizations to turn complex problems into clear, elegant experiences that people actually want to use.</p>
+        <p class="sg-spec"><strong>Font:</strong> DM Sans · <strong>Size:</strong> 1.1rem · <strong>Weight:</strong> 400 · <strong>Line-height:</strong> 1.8 · <strong>Color:</strong> --color-text-muted</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Body Default</div>
+        <p class="body-default">Led end-to-end product design across three platform releases, collaborating with cross-functional teams to deliver solutions on time and within scope.</p>
+        <p class="sg-spec"><strong>Font:</strong> DM Sans · <strong>Size:</strong> 0.95rem · <strong>Weight:</strong> 400 · <strong>Line-height:</strong> 1.75</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Body Small / Secondary</div>
+        <p class="body-small">Collaborated with engineering and product stakeholders to define requirements and validate designs through user research.</p>
+        <p class="sg-spec"><strong>Font:</strong> DM Sans · <strong>Size:</strong> 0.9rem · <strong>Weight:</strong> 400 · <strong>Line-height:</strong> 1.7 · <strong>Color:</strong> --color-text-muted</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Eyebrow / Section Label Variants</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <p class="eyebrow">Experience Design</p>
+            <p class="sg-spec"><strong>Eyebrow:</strong> DM Sans 500 · 0.85rem · uppercase · letter-spacing 0.15em · --color-accent</p>
+          </div>
+          <div>
+            <p class="section-label">Selected Work</p>
+            <p class="sg-spec"><strong>Section Label:</strong> DM Sans 500 · 0.85rem · uppercase · letter-spacing 0.08em · --color-text-muted · with gold dot prefix</p>
+          </div>
+          <div>
+            <p class="caption">2019 – 2022</p>
+            <p class="sg-spec"><strong>Caption / Meta:</strong> DM Sans 500 · 0.82rem · uppercase · letter-spacing 0.08em · --color-text-muted</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="type-specimen" style="background:var(--color-dark);">
+        <div class="type-label" style="color:var(--color-accent);border-color:rgba(255,255,255,0.1);">Italic Accent (used in hero headlines)</div>
+        <h2 class="specimen" style="color:#fff;">Design <em style="color:var(--color-accent);font-style:italic;">that moves</em> people</h2>
+        <p class="sg-spec" style="color:rgba(255,255,255,0.5);">Italic <code style="color:var(--color-accent);">&lt;em&gt;</code> inside headings renders in Libre Baskerville italic at --color-accent. Used sparingly for one key word or phrase.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SPACING ==================== -->
+  <section class="sg-section" id="spacing">
+    <div class="container">
+      <p class="sg-section-label">Foundation</p>
+      <h2 class="sg-section-title">Spacing & Layout</h2>
+      <p class="sg-section-desc">No formal spacing scale variable — spacing is applied directly. These are the values that recur throughout the codebase.</p>
+
+      <div class="spacing-row">
+        <div class="spacing-block"><div class="spacing-visual" style="height:4px;"></div><span class="spacing-val">4px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:8px;"></div><span class="spacing-val">8px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:12px;"></div><span class="spacing-val">12px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:16px;"></div><span class="spacing-val">16px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:20px;"></div><span class="spacing-val">20px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:24px;"></div><span class="spacing-val">24px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:32px;"></div><span class="spacing-val">32px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:40px;"></div><span class="spacing-val">40px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:48px;"></div><span class="spacing-val">48px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:60px;"></div><span class="spacing-val">60px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:64px;"></div><span class="spacing-val">64px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:80px;"></div><span class="spacing-val">80px</span></div>
+        <div class="spacing-block"><div class="spacing-visual" style="height:100px;"></div><span class="spacing-val">120px</span></div>
+      </div>
+
+      <div style="margin-top:48px;" class="sg-row">
+        <div class="sg-col">
+          <div class="type-specimen" style="padding:20px;">
+            <div class="type-label">Layout Tokens</div>
+            <p class="sg-spec">
+              <strong>--nav-height:</strong> 80px<br>
+              <strong>--section-padding:</strong> 120px (80px mobile)<br>
+              <strong>--container-width:</strong> 1200px<br>
+              <strong>Container padding:</strong> 0 32px<br>
+              <strong>Narrow container (case studies):</strong> 860px<br>
+              <strong>--radius:</strong> 16px<br>
+              <strong>--radius-sm:</strong> 8px<br>
+              <strong>--transition:</strong> 0.35s cubic-bezier(0.4, 0, 0.2, 1)
+            </p>
+          </div>
+        </div>
+        <div class="sg-col">
+          <div class="type-specimen" style="padding:20px;">
+            <div class="type-label">Border Radii</div>
+            <p class="sg-spec">
+              <strong>100px (pill):</strong> buttons, tags, filter chips<br>
+              <strong>24px:</strong> CTA card<br>
+              <strong>16px (--radius):</strong> cards, modals, images, career items<br>
+              <strong>14px:</strong> service/highlight icons<br>
+              <strong>10px:</strong> small icons, stat badge<br>
+              <strong>8px (--radius-sm):</strong> tags, small elements<br>
+              <strong>6px:</strong> form inputs<br>
+              <strong>50%:</strong> circular — arrow buttons, avatar
+            </p>
+          </div>
+        </div>
+        <div class="sg-col">
+          <div class="type-specimen" style="padding:20px;">
+            <div class="type-label">Shadows</div>
+            <div class="sg-row" style="gap:16px;margin-top:8px;">
+              <div class="shadow-card" style="box-shadow:0 2px 20px rgba(0,0,0,0.06);flex:1;">Nav scroll<br><span class="spacing-val">0 2px 20px rgba(0,0,0,0.06)</span></div>
+              <div class="shadow-card" style="box-shadow:0 8px 24px rgba(0,0,0,0.15);flex:1;">Button hover<br><span class="spacing-val">0 8px 24px rgba(0,0,0,0.15)</span></div>
+              <div class="shadow-card" style="box-shadow:0 12px 36px rgba(212,168,83,0.3);flex:1;">Stat card<br><span class="spacing-val">0 12px 36px rgba(212,168,83,0.3)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BUTTONS ==================== -->
+  <section class="sg-section" id="buttons">
+    <div class="container">
+      <p class="sg-section-label">Components</p>
+      <h2 class="sg-section-title">Buttons & Tags</h2>
+      <p class="sg-section-desc">Three button variants. All share the same base: pill shape, DM Sans 500, 0.95rem, 10px 22px padding, with a smooth cubic-bezier transition.</p>
+
+      <div class="type-specimen">
+        <div class="type-label">Button Variants</div>
+        <div class="sg-row" style="align-items:center;gap:16px;">
+          <a class="btn btn-primary" href="#">Primary <span class="arrow">↗</span></a>
+          <a class="btn btn-outline" href="#">Outline <span class="arrow">↗</span></a>
+          <a class="btn btn-accent" href="#">Accent <span class="arrow">↗</span></a>
+        </div>
+        <p class="sg-spec" style="margin-top:20px;">
+          <strong>Primary:</strong> bg --color-dark, text white · hover bg #333 + translateY(-2px) + shadow<br>
+          <strong>Outline:</strong> transparent bg, 1.5px border --color-border · hover becomes filled dark<br>
+          <strong>Accent:</strong> bg --color-accent, text --color-dark · hover bg #c49a45 + translateY(-2px)
+        </p>
+      </div>
+
+      <div class="type-specimen" style="background:var(--color-dark);margin-top:16px;">
+        <div class="type-label" style="color:var(--color-accent);border-color:rgba(255,255,255,0.1);">On Dark — Filter / Outline Chips</div>
+        <div class="sg-row" style="align-items:center;gap:10px;">
+          <button style="padding:10px 22px;border-radius:100px;border:1px solid var(--color-accent);background:var(--color-accent);color:var(--color-dark);font-size:0.85rem;font-family:var(--font-body);font-weight:500;cursor:pointer;">All Work</button>
+          <button class="tag tag-outline" style="padding:10px 22px;cursor:pointer;">Strategy</button>
+          <button class="tag tag-outline" style="padding:10px 22px;cursor:pointer;">Research</button>
+          <button class="tag tag-outline" style="padding:10px 22px;cursor:pointer;">Product Design</button>
+        </div>
+        <p class="sg-spec" style="color:rgba(255,255,255,0.5);margin-top:20px;">Active filter: --color-accent bg. Inactive: transparent bg, rgba(255,255,255,0.15) border, rgba(255,255,255,0.6) text. Hover → accent fill.</p>
+      </div>
+
+      <div class="type-specimen" style="margin-top:16px;">
+        <div class="type-label">Tags / Chips — Light</div>
+        <div class="sg-row" style="align-items:center;gap:8px;">
+          <span class="tag">UX Research</span>
+          <span class="tag">Product Strategy</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">Workshop Facilitation</span>
+        </div>
+        <p class="sg-spec" style="margin-top:16px;"><strong>Base tag:</strong> --color-accent-soft bg, --color-dark text, 0.75rem 500, 4px 14px padding, 100px radius</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARDS ==================== -->
+  <section class="sg-section" id="cards">
+    <div class="container">
+      <p class="sg-section-label">Components</p>
+      <h2 class="sg-section-title">Cards</h2>
+      <p class="sg-section-desc">Three card patterns: light service cards, dark project cards, and expandable career items.</p>
+
+      <!-- Service / Content cards -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">Service Cards — hover to see accent line</p>
+        <div class="grid-demo-3">
+          <div class="card card-accent-line">
+            <div class="card-icon">✦</div>
+            <h3>Experience Design</h3>
+            <p>End-to-end UX design for complex digital products, from research through final delivery.</p>
+          </div>
+          <div class="card card-accent-line">
+            <div class="card-icon">◎</div>
+            <h3>Design Strategy</h3>
+            <p>Connecting user needs to business goals through research, frameworks, and facilitation.</p>
+          </div>
+          <div class="card card-accent-line">
+            <div class="card-icon">⬡</div>
+            <h3>Design Systems</h3>
+            <p>Building scalable component libraries and documentation teams can actually use.</p>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Card:</strong> 1px --color-border, --radius, 32px–40px padding · hover: border → --color-accent · top accent line: scaleX(0) → scaleX(1) on hover</p>
+      </div>
+
+      <!-- Project cards -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">Project Cards — hover to reveal overlay and arrow</p>
+        <div class="dark-card-wrap">
+          <div class="grid-demo-3">
+            <div class="project-card">
+              <div class="project-card-image"></div>
+              <div class="project-card-overlay">
+                <div class="project-card-category">Product Design</div>
+                <div class="project-card-title">Connected Home Platform</div>
+              </div>
+              <div class="project-card-arrow">↗</div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-image" style="background:linear-gradient(135deg,#3a3a3a,#2a2a2a);"></div>
+              <div class="project-card-overlay">
+                <div class="project-card-category">UX Research</div>
+                <div class="project-card-title">AI Marketplace Redesign</div>
+              </div>
+              <div class="project-card-arrow">↗</div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-image" style="background:linear-gradient(135deg,#2a2a2a,#1a1a1a);"></div>
+              <div class="project-card-overlay">
+                <div class="project-card-category">Design Systems</div>
+                <div class="project-card-title">Enterprise Component Library</div>
+              </div>
+              <div class="project-card-arrow">↗</div>
+            </div>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Project card:</strong> bg #2a2a2a, aspect-ratio 4/3, --radius, overlay opacity 0→1 on hover · arrow: scale(0.8)→1, opacity 0→1 · card: translateY(-4px) · image: scale(1.05) on hover</p>
+      </div>
+
+      <!-- Career accordion -->
+      <div>
+        <p class="caption" style="margin-bottom:20px;">Career / Accordion Items — click to expand</p>
+        <div class="career-item open" id="career1">
+          <div class="career-header" onclick="toggleCareer('career1')">
+            <div>
+              <div class="career-company">Augusto Digital</div>
+              <div class="career-role">Director of Experience Design</div>
+            </div>
+            <div class="career-dates">2021 – Present</div>
+            <div class="career-tags">
+              <span class="tag">Leadership</span>
+              <span class="tag">Strategy</span>
+            </div>
+          </div>
+          <div class="career-body">
+            <div class="career-body-inner">
+              <ul>
+                <li>Led a team of 8 designers across 14 concurrent client engagements</li>
+                <li>Established design systems practice and cross-functional facilitation programs</li>
+                <li>Drove a 40% reduction in design-to-development handoff friction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="career-item" id="career2">
+          <div class="career-header" onclick="toggleCareer('career2')">
+            <div>
+              <div class="career-company">Previous Company</div>
+              <div class="career-role">Senior UX Designer</div>
+            </div>
+            <div class="career-dates">2018 – 2021</div>
+            <div class="career-tags">
+              <span class="tag">UX Design</span>
+              <span class="tag">Research</span>
+            </div>
+          </div>
+          <div class="career-body">
+            <div class="career-body-inner">
+              <ul>
+                <li>Designed end-to-end flows for a B2B SaaS platform with 50k+ users</li>
+                <li>Ran quarterly research sprints and synthesized insights for product roadmap</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Career item:</strong> 1px --color-border, --radius · hover/open: border → --color-accent · body: max-height 0→400px, 0.5s cubic-bezier(0.4,0,0.2,1)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <section class="sg-section" id="navigation">
+    <div class="container">
+      <p class="sg-section-label">Components</p>
+      <h2 class="sg-section-title">Navigation</h2>
+      <p class="sg-section-desc">Fixed navbar with frosted glass background. Brand name uses display serif; links use body sans-serif with animated gold underline on hover. Rightmost item uses accent pill style.</p>
+
+      <div class="type-specimen">
+        <div class="type-label">Nav Bar</div>
+        <div class="nav-demo">
+          <div class="nav-brand">CEK<span>.</span></div>
+          <nav class="nav-links">
+            <a href="#">Work</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a class="nav-highlight" href="#">Let's Talk</a>
+          </nav>
+        </div>
+        <p class="sg-spec" style="margin-top:16px;">
+          <strong>Nav:</strong> position fixed, 80px height, rgba(250,250,248,0.92) bg, backdrop-filter blur(20px), 1px rgba(0,0,0,0.06) border-bottom<br>
+          <strong>Links:</strong> DM Sans 500, 0.92rem, --color-text-muted · hover: --color-dark + 2px gold underline slides in (width 0→100%, 0.3s ease)<br>
+          <strong>Highlight pill:</strong> --color-accent bg, 0 18px padding, 100px radius · hover: #c49a45
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMPONENTS ==================== -->
+  <section class="sg-section" id="components">
+    <div class="container">
+      <p class="sg-section-label">Components</p>
+      <h2 class="sg-section-title">UI Components</h2>
+      <p class="sg-section-desc">Reusable patterns for stats, results, highlights, and meta information.</p>
+
+      <!-- Stats strip -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">Stats Strip — Gold Background</p>
+        <div class="stats-strip">
+          <div class="stat-item">
+            <div class="stat-number">15<span>+</span></div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">40<span>+</span></div>
+            <div class="stat-label">Projects Shipped</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">8</div>
+            <div class="stat-label">Designers Led</div>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Stat number:</strong> Libre Baskerville 700, 2.4rem · symbol <span> in white · label: DM Sans 700, 0.72rem uppercase, rgba(26,26,26,0.55) · dividers: rgba(26,26,26,0.18)</p>
+      </div>
+
+      <!-- Result callout -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">Result Callout — Case Study Impact</p>
+        <div class="result-block">
+          <div style="text-align:center;flex-shrink:0;">
+            <div class="result-number">3×</div>
+            <div class="result-unit">Increase</div>
+          </div>
+          <div class="result-text">
+            The redesigned onboarding flow delivered a <strong>3× improvement in activation rate</strong>, reducing time-to-value from 14 days to under 4 and enabling the team to hit their Q3 growth targets.
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Result number:</strong> Libre Baskerville 700, clamp(3.5rem,6vw,5rem), --color-accent · unit: DM Sans 0.85rem uppercase, rgba(255,255,255,0.5) · body: 1.1rem, rgba(255,255,255,0.7) · strong: white 600</p>
+      </div>
+
+      <!-- About highlights -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">About Highlights</p>
+        <div style="max-width:520px;">
+          <div class="about-highlight">
+            <div class="about-highlight-icon">✦</div>
+            <div class="about-highlight-text">
+              <strong>Human-Centered Approach</strong>
+              <span>Research-led design that keeps real users at the center of every decision.</span>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">◎</div>
+            <div class="about-highlight-text">
+              <strong>Systems Thinking</strong>
+              <span>Designing scalable solutions, not just screens — always thinking about the whole.</span>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <div class="about-highlight-icon">⬡</div>
+            <div class="about-highlight-text">
+              <strong>Cross-Functional Fluency</strong>
+              <span>Comfortable bridging design, product, engineering, and business stakeholders.</span>
+            </div>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Icon:</strong> 40×40px, border-radius 10px, --color-accent-soft bg, --color-accent text · row separated by 1px --color-border top/bottom borders · gap: 20px</p>
+      </div>
+
+      <!-- Meta / Case Study sidebar -->
+      <div style="margin-bottom:48px;">
+        <p class="caption" style="margin-bottom:20px;">Case Study Meta / Sidebar</p>
+        <div style="display:flex;gap:48px;flex-wrap:wrap;">
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Client</div>
+            <div class="cs-meta-value">Corewell Health</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Role</div>
+            <div class="cs-meta-value">Lead Experience Designer</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Timeline</div>
+            <div class="cs-meta-value">6 months, 2023</div>
+          </div>
+          <div class="cs-meta-item">
+            <div class="cs-meta-label">Deliverables</div>
+            <div class="cs-meta-value">Research · Prototype · Design System</div>
+          </div>
+        </div>
+        <p class="sg-spec"><strong>Label:</strong> DM Sans 700, 0.72rem uppercase, 0.1em letter-spacing, --color-text-muted · <strong>Value:</strong> DM Sans 500, 0.95rem, --color-dark</p>
+      </div>
+
+      <!-- Image placeholder -->
+      <div>
+        <p class="caption" style="margin-bottom:20px;">Image Placeholder Style</p>
+        <div class="sg-row">
+          <div style="flex:1;min-width:180px;">
+            <div class="img-placeholder" style="aspect-ratio:4/3;">4:3 Project</div>
+            <p class="sg-spec" style="margin-top:6px;">Project card image</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="img-placeholder" style="aspect-ratio:4/5;">4:5 Hero</div>
+            <p class="sg-spec" style="margin-top:6px;">Hero portrait</p>
+          </div>
+          <div style="flex:1;min-width:180px;">
+            <div class="img-placeholder" style="aspect-ratio:1/1;">1:1 About</div>
+            <p class="sg-spec" style="margin-top:6px;">About section</p>
+          </div>
+          <div style="flex:2;min-width:280px;">
+            <div class="img-placeholder" style="aspect-ratio:16/8;">16:8 Case Study Hero</div>
+            <p class="sg-spec" style="margin-top:6px;">Case study banner</p>
+          </div>
+        </div>
+        <p class="sg-spec" style="margin-top:12px;"><strong>Placeholder gradient:</strong> linear-gradient(135deg, #e8e6e1 0%, #d4d2cd 100%) · images always border-radius --radius, overflow hidden, object-fit cover</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="sg-section">
+    <div class="container">
+      <p class="sg-section-label">Components</p>
+      <h2 class="sg-section-title">CTA Card</h2>
+      <p class="sg-section-desc">Full-width dark card with centered content and a subtle radial gold glow. Used as the page-closing call to action.</p>
+
+      <div class="cta-card">
+        <p class="eyebrow-dark">Get In Touch</p>
+        <h2>Let's build something <em style="font-style:italic;color:var(--color-accent);">together.</em></h2>
+        <p>I'm currently available for strategic engagements, fractional leadership, and select project-based work.</p>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="#">Start a Conversation <span class="arrow">↗</span></a>
+          <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);" href="#">View My Work</a>
+        </div>
+      </div>
+      <p class="sg-spec" style="margin-top:12px;"><strong>CTA card:</strong> --color-dark bg, 24px radius, 80px 64px padding, text-center · radial gold glow: opacity 0.12, top -100px, 400px circle · italic em in heading uses --color-accent</p>
+    </div>
+  </section>
+
+  <!-- ==================== LAYOUT ==================== -->
+  <section class="sg-section" id="layout">
+    <div class="container">
+      <p class="sg-section-label">Layout</p>
+      <h2 class="sg-section-title">Grid Patterns</h2>
+      <p class="sg-section-desc">All layouts use CSS Grid. Max container width is 1200px with 32px horizontal padding. Section vertical padding is 120px (80px on mobile).</p>
+
+      <div style="margin-bottom:40px;">
+        <p class="caption" style="margin-bottom:16px;">3-Column Grid — repeat(3, 1fr), gap 24px → 2-col at ≤1024px → 1-col at ≤768px</p>
+        <div class="grid-demo-3">
+          <div class="grid-cell">Column 1</div>
+          <div class="grid-cell">Column 2</div>
+          <div class="grid-cell">Column 3</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:40px;">
+        <p class="caption" style="margin-bottom:16px;">3-Column with Wide Card — span 2 for featured items</p>
+        <div class="grid-demo-3">
+          <div class="grid-cell span-2 dark">Featured — span 2</div>
+          <div class="grid-cell dark">Default</div>
+          <div class="grid-cell dark">Default</div>
+          <div class="grid-cell span-2 dark">Featured — span 2</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:40px;">
+        <p class="caption" style="margin-bottom:16px;">2-Column Split — 1fr 1fr, gap 80px → 1-col at ≤1024px</p>
+        <div class="grid-demo-2">
+          <div class="grid-cell" style="padding:40px;">Left column — text / content</div>
+          <div class="grid-cell" style="padding:40px;">Right column — image / visual</div>
+        </div>
+      </div>
+
+      <div>
+        <p class="caption" style="margin-bottom:16px;">Case Study Overview — 320px 1fr, gap 64px → 1-col at ≤1024px</p>
+        <div style="display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:start;">
+          <div class="grid-cell" style="padding:32px;">Sidebar — meta info<br>320px fixed</div>
+          <div class="grid-cell" style="padding:32px;min-height:120px;">Main content<br>1fr flexible</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <div class="type-specimen" style="padding:20px;">
+          <div class="type-label">Responsive Breakpoints</div>
+          <p class="sg-spec">
+            <strong>≤1024px:</strong> 2-column grids → 1-col · hero/about stack · section padding stays 120px · case study overview stacks<br>
+            <strong>≤768px:</strong> Section padding → 80px · all grids → 1-col · nav links hidden (mobile menu) · case study process/solution → 1-col · hero stats → vertical flex<br>
+            <strong>prefers-reduced-motion:</strong> logo marquee animation disabled
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TOKENS REFERENCE ==================== -->
+  <section class="sg-section">
+    <div class="container">
+      <p class="sg-section-label">Reference</p>
+      <h2 class="sg-section-title">CSS Variables — Copy-Paste Block</h2>
+      <p class="sg-section-desc">Drop this into any new project to instantly match the portfolio's visual language.</p>
+
+      <div style="background:var(--color-dark);border-radius:var(--radius);padding:36px 40px;overflow-x:auto;">
+        <pre style="font-family:'Courier New',monospace;font-size:0.82rem;line-height:1.8;color:rgba(255,255,255,0.7);white-space:pre-wrap;"><span style="color:var(--color-accent);">/* Google Fonts */</span>
+<span style="color:rgba(255,255,255,0.4);">@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');</span>
+<span style="color:rgba(255,255,255,0.4);">/* Phosphor Icons: https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css */</span>
+
+<span style="color:var(--color-accent);">:root {</span>
+  <span style="color:rgba(255,255,255,0.5);">/* Colors */</span>
+  <span style="color:#fff;">--color-bg:</span>           <span style="color:#FAFAF8;">#FAFAF8</span>;
+  <span style="color:#fff;">--color-surface:</span>      <span style="color:#fff;">#FFFFFF</span>;
+  <span style="color:#fff;">--color-dark:</span>         <span style="color:#888;">#1A1A1A</span>;
+  <span style="color:#fff;">--color-text:</span>         <span style="color:#888;">#3A3A3A</span>;
+  <span style="color:#fff;">--color-text-muted:</span>  <span style="color:#888;">#7A7A7A</span>;
+  <span style="color:#fff;">--color-accent:</span>       <span style="color:#D4A853;">#D4A853</span>;
+  <span style="color:#fff;">--color-accent-soft:</span> <span style="color:#F5EDD8;">#F5EDD8</span>;
+  <span style="color:#fff;">--color-border:</span>       <span style="color:#888;">#E8E6E1</span>;
+
+  <span style="color:rgba(255,255,255,0.5);">/* Typography */</span>
+  <span style="color:#fff;">--font-display:</span> 'Libre Baskerville', Georgia, serif;
+  <span style="color:#fff;">--font-body:</span>    'DM Sans', -apple-system, sans-serif;
+
+  <span style="color:rgba(255,255,255,0.5);">/* Layout */</span>
+  <span style="color:#fff;">--nav-height:</span>       80px;
+  <span style="color:#fff;">--section-padding:</span> 120px;
+  <span style="color:#fff;">--container-width:</span> 1200px;
+  <span style="color:#fff;">--radius:</span>           16px;
+  <span style="color:#fff;">--radius-sm:</span>        8px;
+  <span style="color:#fff;">--transition:</span>       0.35s cubic-bezier(0.4, 0, 0.2, 1);
+<span style="color:var(--color-accent);">}</span>
+
+<span style="color:var(--color-accent);">@media (max-width: 768px) {</span>
+  <span style="color:#fff;">:root { --section-padding: 80px; }</span>
+<span style="color:var(--color-accent);">}</span></pre>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function toggleCareer(id) {
+  const item = document.getElementById(id);
+  item.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

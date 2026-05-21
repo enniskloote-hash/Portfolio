@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christy Ennis-Kloote — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================
+   VARIABLES & RESET
+   ============================================ */
+:root {
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-text: #3A3A3A;
+  --color-text-muted: #7A7A7A;
+  --color-accent: #D4A853;
+  --color-accent-soft: #F5EDD8;
+  --color-border: #E8E6E1;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ============================================
+   SCREEN NAV
+   ============================================ */
+.screen-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 100;
+}
+.screen-nav-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+}
+.screen-nav-brand span { color: var(--color-accent); }
+.screen-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1.5px solid var(--color-border);
+}
+.btn-outline:hover { border-color: var(--color-dark); background: var(--color-dark); color: #fff; }
+.btn-primary { background: var(--color-dark); color: #fff; }
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+.btn-accent { background: var(--color-accent); color: var(--color-dark); }
+.btn-accent:hover { background: #c49a45; }
+
+/* ============================================
+   PAGE WRAPPER
+   ============================================ */
+.page-wrap {
+  padding-top: 64px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 80px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.resume-header {
+  padding: 40px 0 32px;
+  position: relative;
+}
+.resume-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-border) 40%);
+}
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+.header-name-block h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+.header-name-block h1 em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+.header-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+.header-badge {
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.header-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1;
+}
+.header-badge span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(26,26,26,0.55);
+  margin-top: 4px;
+}
+
+.header-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  align-items: center;
+}
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+.contact-item a {
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+.contact-item a:hover { color: var(--color-accent); }
+.contact-dot {
+  color: var(--color-accent);
+  font-size: 0.6rem;
+}
+
+/* ============================================
+   SUMMARY
+   ============================================ */
+.summary-section {
+  padding: 24px 0 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+.summary-section p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  max-width: 760px;
+}
+.summary-section p strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ============================================
+   TWO-COLUMN LAYOUT
+   ============================================ */
+.resume-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  padding-top: 32px;
+  align-items: start;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ============================================
+   EXPERIENCE
+   ============================================ */
+.experience-section { margin-bottom: 48px; }
+
+.exp-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+.exp-item:last-child { border-bottom: none; }
+
+.exp-item.current .exp-company::after {
+  content: 'Current';
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 2px 10px;
+  background: var(--color-accent-soft);
+  color: var(--color-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+
+.exp-meta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 3px;
+}
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+.exp-company {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+.exp-bullets {
+  padding-left: 0;
+}
+.exp-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  top: 0.12em;
+}
+.exp-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* See full resume link */
+.see-full-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-border);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: var(--transition);
+}
+.see-full-resume:hover {
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+.see-full-resume .arrow {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar { }
+.sidebar-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--color-accent);
+}
+
+.sidebar-block-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-tag {
+  display: inline-flex;
+  padding: 4px 12px;
+  background: var(--color-accent-soft);
+  color: var(--color-dark);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+/* Education */
+.edu-item { margin-bottom: 10px; }
+.edu-item:last-child { margin-bottom: 0; }
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.edu-school {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+.edu-dates {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+/* Awards */
+.award-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+.award-item::before {
+  content: '★';
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Publications */
+.pub-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.pub-item:last-child { margin-bottom: 0; }
+.pub-item::before {
+  content: '↗';
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Languages */
+.lang-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+.lang-item::before {
+  content: '';
+  display: block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Contact sidebar block */
+.contact-sidebar .contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact-sidebar .contact-line {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+.contact-sidebar .contact-line strong {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 1px;
+}
+.contact-sidebar .contact-line a {
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.contact-sidebar .contact-line a:hover { color: var(--color-accent); }
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  @page {
+    margin: 12mm 16mm;
+    size: letter;
+  }
+
+  :root {
+    --color-bg: #fff;
+    --color-surface: #fff;
+  }
+
+  .screen-nav { display: none !important; }
+  .page-wrap {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    max-width: 100%;
+  }
+
+  body { background: #fff; font-size: 11px; line-height: 1.4; }
+
+  .resume-header { padding: 0 0 16px; }
+  .header-name-block h1 { font-size: 22pt; }
+  .header-top { margin-bottom: 10px; }
+  .header-badge { display: none; }
+
+  .summary-section { padding: 14px 0 12px; }
+  .summary-section p { line-height: 1.45; }
+
+  .btn-accent, .see-full-resume { display: none !important; }
+
+  .resume-body {
+    grid-template-columns: 1fr 200px;
+    gap: 28px;
+    padding-top: 20px;
+  }
+
+  .exp-item { padding: 10px 0; page-break-inside: avoid; }
+  .exp-meta { margin-bottom: 1px; }
+  .exp-role { margin-bottom: 1px; }
+  .exp-company { margin-bottom: 5px; }
+  .exp-bullets li { line-height: 1.4; margin-bottom: 2px; }
+  .exp-note { line-height: 1.4; }
+
+  .sidebar-block {
+    box-shadow: none;
+    border-color: #ddd;
+    break-inside: avoid;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .sidebar-block-title { margin-bottom: 7px; }
+  .skills-list { gap: 4px; }
+  .skill-tag { padding: 2px 8px; font-size: 0.68rem; }
+  .edu-item { margin-bottom: 8px; }
+
+  a[href]::after { content: none; }
+  .header-contact .contact-item a::after { content: none; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 700px) {
+  .page-wrap { padding-left: 20px; padding-right: 20px; }
+  .resume-body { grid-template-columns: 1fr; gap: 0; }
+  .header-top { flex-direction: column; gap: 16px; }
+  .screen-nav { padding: 0 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- SCREEN NAV -->
+<nav class="screen-nav">
+  <div class="screen-nav-brand">Christy Ennis-Kloote <span>·</span> Resume</div>
+  <div class="screen-nav-actions">
+    <a class="btn btn-outline" href="index.html">← Portfolio</a>
+    <a class="btn btn-accent" href="Ennis-Kloote_2026.pdf" target="_blank">Download PDF ↗</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <header class="resume-header">
+    <div class="header-top">
+      <div class="header-name-block">
+        <h1>Christy <em>Ennis-Kloote</em></h1>
+        <p class="header-title">Experience Designer &amp; Design Leader</p>
+      </div>
+      <div class="header-badge">
+        <strong>20<span style="color:#fff;">+</span></strong>
+        <span>Years in Design</span>
+      </div>
+    </div>
+    <div class="header-contact">
+      <span class="contact-item">Grand Rapids, MI</span>
+      <span class="contact-dot">•</span>
+      <span class="contact-item"><a href="https://enniskloote.com/" target="_blank">enniskloote.com</a></span>
+      <span class="contact-dot">•</span>
+      <span class="contact-item"><a href="https://linkedin.com/in/enniskloote" target="_blank">linkedin.com/in/enniskloote</a></span>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="summary-section">
+    <p>Natural optimist driven to find solutions to any design challenge, particularly those that traverse <strong>complex systems</strong>, together in a cross-functional team. I have built multiple teams that have delivered multi-modal product experiences in consumer, B2B, medical, and automotive markets. My background in <strong>Industrial Design</strong> drives me to understand and seek out users' unmet needs and address them in execution. As a lifetime consultant and community builder, I am motivated to learn constantly — enabling a larger impact on approach and more meaningful outcomes.</p>
+  </section>
+
+  <!-- BODY -->
+  <div class="resume-body">
+
+    <!-- MAIN: EXPERIENCE -->
+    <main>
+      <div class="experience-section">
+        <div class="section-label">Experience</div>
+
+        <!-- CDO -->
+        <div class="exp-item current">
+          <div class="exp-meta">Apr 2025 – Present</div>
+          <div class="exp-role">Chief Design Officer</div>
+          <div class="exp-company">Augusto Digital — Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Leading digital experience strategy; grew overall company book of business by 50% by attracting top talent and expanding offerings.</li>
+            <li>Designing innovative offerings valued by clients and integrating AI and Agentic Automation into workflows for enhanced efficiency.</li>
+            <li>Collaborating with build teams to deliver delightful and practical products, driving company success.</li>
+          </ul>
+        </div>
+
+        <!-- Latticework -->
+        <div class="exp-item current">
+          <div class="exp-meta">May 2023 – Present</div>
+          <div class="exp-role">Peer Advisor</div>
+          <div class="exp-company">Latticework Consulting — Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Coach and consult with leaders on removing barriers for designers to do their best work.</li>
+            <li>Services extend from building in-house UX teams and capabilities to organizational advocacy.</li>
+            <li>Get teams unstuck typically in the first week with tangible results in the first 30 days.</li>
+            <li>Establish a trusting relationship with each client by maintaining professionalism and honoring confidentiality.</li>
+          </ul>
+        </div>
+
+        <!-- EDSD -->
+        <div class="exp-item">
+          <div class="exp-meta">Aug 2022 – Apr 2025</div>
+          <div class="exp-role">Experience Design Services Director</div>
+          <div class="exp-company">Augusto Digital — Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Led and grew the Experience Design, Product Services, and Growth Marketing teams to the top-performing service line with best-in-class margins of 40–50%.</li>
+            <li>Developed strategies to enhance service delivery, customer satisfaction, and profit margin goals.</li>
+            <li>Collaborated with other departments to align on strategic initiatives; drove growth through innovative marketing and product strategies.</li>
+            <li>Worked closely with the sales team on effective pre-sales; engaged as an integral part of the Augusto leadership team implementing EOS.</li>
+          </ul>
+        </div>
+
+        <!-- Argenta Park -->
+        <div class="exp-item">
+          <div class="exp-meta">Mar 2022 – Jan 2024</div>
+          <div class="exp-role">Managing Director of Experience Design</div>
+          <div class="exp-company">Argenta Park — Kalamazoo, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Applied experience to build and manage a healthy team focused on uniquely creative product experience concepts for clients.</li>
+            <li>Managed all aspects of design operations including development, methods, tools, and budget.</li>
+            <li>Worked in partnership to set and implement strategic direction, creating healthier profitability for 14+ members without impeding creativity.</li>
+          </ul>
+        </div>
+
+        <!-- OST Practice Manager -->
+        <div class="exp-item">
+          <div class="exp-meta">Jul 2018 – Mar 2022</div>
+          <div class="exp-role">Principal, Design Practice Manager</div>
+          <div class="exp-company">Open Systems Technologies, Inc. — Greater Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Led and managed the Professional Services Design Practice — up to 25+ team members across three geographies plus an extended remote team.</li>
+            <li>Responsible for achieving practice goals including sales, GM%, and utilization.</li>
+            <li>Owned thought leadership, market pricing, and delivery strategy across OST's multidisciplinary teams while ensuring culture and business goals were aligned.</li>
+            <li>Maintained focus on team growth and development to ensure constant evolution for the changing consulting market.</li>
+          </ul>
+        </div>
+
+        <!-- OST Director -->
+        <div class="exp-item">
+          <div class="exp-meta">Nov 2017 – Jul 2018</div>
+          <div class="exp-role">Principal, Director of Product Design</div>
+          <div class="exp-company">Open Systems Technologies, Inc. — Greater Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Through the acquisition of Visualhero and formation of Open Digital, developed frameworks to guide entire user experiences and led innovative projects identifying new value opportunities.</li>
+            <li>Collaborated with product owners and stakeholders to understand problems and offer balanced solutions; managed budgets ranging from $15k to $500k.</li>
+            <li>Mentored contributors and leaders to develop new practices and thought leadership; focus on Connected Solutions and Product Design.</li>
+          </ul>
+        </div>
+
+        <!-- Visualhero Director -->
+        <div class="exp-item">
+          <div class="exp-meta">Feb 2013 – Dec 2017</div>
+          <div class="exp-role">Director of Experience Design</div>
+          <div class="exp-company">Visualhero Design Company (Acquired by OST) — Greater Grand Rapids, Michigan</div>
+          <ul class="exp-bullets">
+            <li>Worked closely with clients large and small to discover opportunities and create meaningful, engaging experiences for end users and product owners.</li>
+            <li>Developed new patterns and practices, enhancing methodological toolkit.</li>
+            <li>Led delivery of shipped products across embedded systems, web apps, mobile, and connected solutions ranging from 3 weeks to 3 years.</li>
+          </ul>
+        </div>
+
+        <!-- Earlier roles — condensed -->
+        <div class="exp-item">
+          <div class="exp-meta">2006 – 2013 · Earlier Roles</div>
+          <div class="exp-role">Lead UX Designer, Visual Designer &amp; Graphic Design Lead</div>
+          <div class="exp-company">Visualhero / Universal Mind / Tiger Studio — Grand Rapids &amp; West Michigan</div>
+          <p class="exp-note">Progressed from graphic and UI design into UX leadership — shipping mobile and web products for multinational clients, building studio operations, and establishing early design practice foundations.</p>
+        </div>
+
+        <!-- Teaching / Community — condensed -->
+        <div class="exp-item">
+          <div class="exp-meta">2015 – 2019 · Teaching &amp; Community</div>
+          <div class="exp-role">Adjunct Instructor · Organizing Chair · Manuscript Reviewer</div>
+          <div class="exp-company">Kendall College of Art &amp; Design · MidwestUX · O'Reilly Media</div>
+          <ul class="exp-bullets">
+            <li>Adjunct Instructor of New Media Design at Kendall College (2015).</li>
+            <li>2019 Organizing Chair for MidwestUX conference — overseeing program curation, team building, and budget.</li>
+            <li>Technical Reviewer for O'Reilly Media (2015–2022) for 20+ manuscripts including <em>Articulating Design Decisions</em> and <em>Product Leadership</em>.</li>
+          </ul>
+        </div>
+
+
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Contact -->
+      <div class="sidebar-block contact-sidebar">
+        <div class="sidebar-block-title">Contact</div>
+        <div class="contact-row">
+          <div class="contact-line">
+            <strong>Web</strong>
+            <a href="https://enniskloote.com/" target="_blank">enniskloote.com</a>
+          </div>
+          <div class="contact-line">
+            <strong>LinkedIn</strong>
+            <a href="https://linkedin.com/in/enniskloote" target="_blank">linkedin.com/in/enniskloote</a>
+          </div>
+          <div class="contact-line">
+            <strong>Location</strong>
+            Grand Rapids, MI
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Top Skills</div>
+        <div class="skills-list">
+          <span class="skill-tag">Customer Experience Design</span>
+          <span class="skill-tag">Product Strategy</span>
+          <span class="skill-tag">User Experience Design</span>
+          <span class="skill-tag">Design Systems</span>
+          <span class="skill-tag">Design Leadership</span>
+          <span class="skill-tag">Strategic Thinking</span>
+          <span class="skill-tag">Professional Services</span>
+          <span class="skill-tag">Project Planning</span>
+          <span class="skill-tag">Multi-Platform Experiences</span>
+          <span class="skill-tag">System Design</span>
+          <span class="skill-tag">Team Building</span>
+          <span class="skill-tag">Strategic Communications</span>
+          <span class="skill-tag">Business Strategy</span>
+          <span class="skill-tag">Design Thinking</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">BS, BA: Industrial Design, German, Art</div>
+          <div class="edu-school">Western Michigan University — Kalamazoo, MI</div>
+          <div class="edu-dates">1997 – 2002</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Industrial Design &amp; German Language</div>
+          <div class="edu-school">Kunsthochschule Berlin-Weissensee — Berlin, Germany</div>
+          <div class="edu-dates">1999 – 2000</div>
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Awards</div>
+        <div class="award-item">GRBJ 40 Under 40 Honoree</div>
+      </div>
+
+      <!-- Publications -->
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Publications</div>
+        <div class="pub-item">Facilitating Creative Culture</div>
+        <div class="pub-item">Embrace A Shared Cadence To Avoid Silos</div>
+      </div>
+
+      <!-- Languages -->
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Languages</div>
+        <div class="lang-item">German</div>
+      </div>
+
+    </aside>
+  </div><!-- end .resume-body -->
+
+</div><!-- end .page-wrap -->
+
+</body>
+</html>
