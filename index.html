@@ -33,7 +33,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -89,7 +89,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 14px 26px;
   border-radius: 100px;
   font-family: var(--font-body);
   font-size: 0.95rem;
@@ -440,7 +440,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
   margin-bottom: 48px;
 }
 .filter-btn {
-  padding: 10px 22px;
+  padding: 14px 26px;
   border-radius: 100px;
   border: 1px solid rgba(255,255,255,0.15);
   background: transparent;
@@ -1057,6 +1057,10 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 /* ============================================
    RESPONSIVE
    ============================================ */
+@media (max-width: 1200px) {
+  :root { --section-padding: 96px; }
+  .container { padding: 0 48px; }
+}
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
   .hero-description { margin: 0 auto 40px; }
@@ -1073,7 +1077,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 }
 
 @media (max-width: 768px) {
-  :root { --section-padding: 80px; }
+  :root { --section-padding: 70px; }
   .nav-links { display: none; }
   .mobile-toggle { display: block; }
   .nav-links.open {
@@ -1099,13 +1103,24 @@ h4 { font-size: 1.1rem; font-weight: 500; }
   .career-header::after { top: 20px; left: auto; right: 20px; transform: scale(0.8); }
   .career-item:hover .career-header::after { transform: scale(1); }
   .services-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
+  .hero-stats { gap: 20px; width: 100%; padding: 24px 20px; }
   .hero-stats-items { gap: 20px; justify-content: center; }
   .hero-stat-divider { display: none; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .cta-card { padding: 48px 28px; }
   .latticework-results { flex-direction: column; gap: 20px; }
+  .container { padding: 0 24px; }
+  .expertise-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .expertise-header-cta { width: 100%; }
+  .about-highlights { grid-template-columns: 1fr; }
+  .hero-eyebrow { letter-spacing: 0.06em; font-size: 0.78rem; }
+  .project-card-overlay { opacity: 1; }
+  .project-card-arrow { opacity: 1; transform: scale(1); }
+  .service-card { display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; align-items: start; }
+  .service-icon { margin-bottom: 0; align-self: center; }
+  .service-card h3 { margin-bottom: 4px; align-self: center; }
+  .service-card p { grid-column: 1 / -1; margin-top: 8px; }
 }
 </style>
 </head>
@@ -1122,7 +1137,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       <a href="#portfolio">Work</a>
       <a href="#experience">Experience</a>
       <a href="#expertise">Expertise</a>
-      <a href="#latticework">Latticework</a>
+      <a href="#coaching">Coaching</a>
       <a href="#" onclick="openCalendlyModal(); return false;" class="btn btn-primary btn-sm nav-cta" style="background: #000; color: #fff;">Let's Talk <span class="arrow">↗</span></a>
     </div>
     <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
@@ -1167,8 +1182,8 @@ h4 { font-size: 1.1rem; font-weight: 500; }
         </div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat-item">
-          <div class="hero-stat-number">25<span>+</span></div>
-          <div class="hero-stat-label">Team Members Led</div>
+          <div class="hero-stat-number">60<span>+</span></div>
+          <div class="hero-stat-label">Largest Team</div>
         </div>
       </div>
       <div class="hero-stats-cta">
@@ -1595,23 +1610,23 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 
 
 <!-- ==========================================
-     LATTICEWORK CONSULTING
+     COACHING
      ========================================== -->
-<section class="latticework" id="latticework">
+<section class="latticework" id="coaching">
   <div class="container">
     <div class="latticework-inner fade-up">
       <div class="latticework-content">
-        <div class="section-label">Latticework Consulting</div>
+        <div class="section-label">Coaching</div>
         <h2>Removing Barriers for Designers to Do Their Best Work</h2>
         <p class="latticework-desc">Through Latticework, I coach and consult with leaders on building in-house UX teams, establishing capabilities, and advocating for design within their organizations.</p>
         <div class="latticework-results">
           <div class="latticework-result">
-            <div class="latticework-result-number">1<span>st</span></div>
-            <div class="latticework-result-label">Week to get teams unstuck</div>
+            <div class="latticework-result-number">1 <span>Week</span></div>
+            <div class="latticework-result-label">to get teams unstuck</div>
           </div>
           <div class="latticework-result">
-            <div class="latticework-result-number">30</div>
-            <div class="latticework-result-label">Days to tangible results</div>
+            <div class="latticework-result-number">4 <span>Weeks</span></div>
+            <div class="latticework-result-label">to tangible results</div>
           </div>
         </div>
         <a href="mailto:enniskloote@gmail.com" class="btn btn-outline" style="margin-top: 28px; border-color: #000;">Learn More <span class="arrow">↗</span></a>

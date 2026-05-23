@@ -29,7 +29,7 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: 
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: 16px; }
 .section-label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; border-radius: 100px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; cursor: pointer; border: none; transition: var(--transition); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 100px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; cursor: pointer; border: none; transition: var(--transition); }
 .btn-primary { background: var(--color-dark); color: #fff; }
 .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 .btn-outline { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-border); }
@@ -97,6 +97,9 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
 .cs-nav-divider { width: 1px; height: 48px; background: var(--color-border); }
 .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 1200px) {
+  .container { padding: 0 48px; }
+}
 @media (max-width: 1024px) {
   .cs-overview-grid { grid-template-columns: 1fr; gap: 40px; }
   .cs-meta-list { flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
@@ -113,6 +116,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 500; }
   .cs-nav-divider { width: 100%; height: 1px; }
   .cs-nav-link.next { text-align: left; }
 }
+@media (max-width: 768px) { .container, .container-narrow { padding: 0 24px; } }
 </style>
 </head>
 <body>
