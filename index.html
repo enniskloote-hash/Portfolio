@@ -463,6 +463,33 @@ h4 { font-size: 1.1rem; font-weight: 500; }
 }
 .portfolio-grid .wide { grid-column: span 2; }
 
+.portfolio-featured {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+.portfolio-featured-aside {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.project-card--main {
+  flex: 2 0 0;
+  min-width: 0;
+}
+.project-card--aside {
+  flex: 1;
+  aspect-ratio: unset;
+  min-height: 120px;
+}
+@media (max-width: 768px) {
+  .portfolio-featured { flex-direction: column; }
+  .project-card--aside { aspect-ratio: 4/3; flex: unset; }
+}
+
 .project-card {
   display: block;
   position: relative;
@@ -1265,7 +1292,7 @@ h4 { font-size: 1.1rem; font-weight: 500; }
       <p>From connected products and IoT to medical devices and automotive, multi-modal experiences across industries. For detailed case studies, please explore the projects below or reach out to discuss details.</p>
     </div>
 
-    <div class="portfolio-filters fade-up">
+    <div class="portfolio-filters fade-up" style="display:none">
       <button class="filter-btn active">All</button>
       <button class="filter-btn">Connected Products</button>
       <button class="filter-btn">Medical</button>
@@ -1276,35 +1303,35 @@ h4 { font-size: 1.1rem; font-weight: 500; }
     </div>
 
     <div class="portfolio-grid">
-      <!-- Applied AI -->
-      <a href="teaching-teams-AI_casestudy.html" class="project-card wide fade-up" data-category="Applied AI">
-        <img src="images/AI_UX_1_Delight.png" alt="Teaching teams to work with AI — workshop session" class="project-card-image" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-category">Applied AI</div>
-          <div class="project-card-title">Teaching Teams to Work Differently</div>
+      <!-- Featured row: large left + 2 stacked right -->
+      <div class="portfolio-featured">
+        <a href="teaching-teams-AI_casestudy.html" class="project-card project-card--main fade-up" data-category="Applied AI">
+          <img src="images/AI_UX_1_Delight.png" alt="Teaching teams to work with AI — workshop session" class="project-card-image" loading="lazy">
+          <div class="project-card-overlay">
+            <div class="project-card-category">Applied AI</div>
+            <div class="project-card-title">Teaching Teams to Work Differently</div>
+          </div>
+          <div class="project-card-arrow">↗</div>
+        </a>
+        <div class="portfolio-featured-aside">
+          <a href="designops-case-study.html" class="project-card project-card--aside fade-up" data-category="DesignOps">
+            <img src="images/TeamSync.png" alt="DesignOps and practice leadership" class="project-card-image" loading="lazy">
+            <div class="project-card-overlay">
+              <div class="project-card-category">DesignOps</div>
+              <div class="project-card-title">The Work Behind the Work</div>
+            </div>
+            <div class="project-card-arrow">↗</div>
+          </a>
+          <a href="corewell-health-case-study.html" class="project-card project-card--aside fade-up" data-category="Enterprise">
+            <img src="images/we-can-stories-two-column.jpg" alt="Corewell Health digital ecosystem" class="project-card-image" loading="lazy">
+            <div class="project-card-overlay">
+              <div class="project-card-category">Enterprise Website Consolidation</div>
+              <div class="project-card-title">Corewell Health</div>
+            </div>
+            <div class="project-card-arrow">↗</div>
+          </a>
         </div>
-        <div class="project-card-arrow">↗</div>
-      </a>
-
-      <!-- DesignOps -->
-      <a href="designops-case-study.html" class="project-card fade-up" data-category="DesignOps">
-        <div class="project-card-placeholder" style="width:100%;height:100%;background:linear-gradient(135deg,#e8e6e1,#d4d2cd);display:flex;align-items:center;justify-content:center;font-style:italic;color:#7a7a7a;font-size:0.9rem;">[ Hero image — practice / team leadership ]</div>
-        <div class="project-card-overlay">
-          <div class="project-card-category">DesignOps</div>
-          <div class="project-card-title">The Work Behind the Work</div>
-        </div>
-        <div class="project-card-arrow">↗</div>
-      </a>
-
-      <!-- Corewell Health -->
-      <a href="corewell-health-case-study.html" class="project-card fade-up" data-category="Enterprise">
-        <img src="images/we-can-stories-two-column.jpg" alt="Corewell Health digital ecosystem" class="project-card-image" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-category">Enterprise Website Consolidation</div>
-          <div class="project-card-title">Corewell Health</div>
-        </div>
-        <div class="project-card-arrow">↗</div>
-      </a>
+      </div>
 
       <!-- Amway Connected Products -->
       <a href="amway-connected-products-case-study.html" class="project-card fade-up" data-category="Connected Products">
