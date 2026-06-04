@@ -22,6 +22,7 @@
   --color-border: #E8E6E1;
   --font-display: 'Libre Baskerville', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
+  --nav-height: 80px;
   --radius: 16px;
   --radius-sm: 8px;
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,35 +40,6 @@ body {
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
-/* ============================================
-   SCREEN NAV
-   ============================================ */
-.screen-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 64px;
-  background: rgba(250,250,248,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  z-index: 100;
-}
-.screen-nav-brand {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--color-dark);
-}
-.screen-nav-brand span { color: var(--color-accent); }
-.screen-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -97,7 +69,7 @@ ul { list-style: none; }
    PAGE WRAPPER
    ============================================ */
 .page-wrap {
-  padding-top: 64px;
+  padding-top: var(--nav-height);
   max-width: 900px;
   margin: 0 auto;
   padding-left: 40px;
@@ -512,7 +484,8 @@ ul { list-style: none; }
     --color-surface: #fff;
   }
 
-  .screen-nav { display: none !important; }
+  .nav { display: none !important; }
+  .footer { display: none !important; }
   .page-wrap {
     padding-top: 0;
     padding-left: 0;
@@ -569,20 +542,12 @@ ul { list-style: none; }
   .page-wrap { padding-left: 20px; padding-right: 20px; }
   .resume-body { grid-template-columns: 1fr; gap: 0; }
   .header-top { flex-direction: column; gap: 16px; }
-  .screen-nav { padding: 0 20px; }
 }
 
 </style>
 </head>
 <body>
 
-<!-- SCREEN NAV -->
-<nav class="screen-nav">
-  <div class="screen-nav-brand">Christy Ennis-Kloote <span>·</span> Resume</div>
-  <div class="screen-nav-actions">
-    <a class="btn btn-outline" href="index.html">← Portfolio</a>
-  </div>
-</nav>
 
 <div class="page-wrap">
 
@@ -678,7 +643,7 @@ ul { list-style: none; }
           <ul class="exp-bullets">
             <li>Led and managed the Professional Services Design Practice — up to 25+ team members across three geographies plus an extended remote team.</li>
             <li>Responsible for achieving practice goals including sales, GM%, and utilization.</li>
-            <li>Owned thought leadership, market pricing, and delivery strategy across OST's multidisciplinary teams while ensuring culture and business goals were aligned.</li>
+            <li>Owned thought leadership, market pricing, and delivery strategy across OST’s multidisciplinary teams while ensuring culture and business goals were aligned.</li>
             <li>Maintained focus on team growth and development to ensure constant evolution for the changing consulting market.</li>
           </ul>
         </div>
@@ -719,11 +684,11 @@ ul { list-style: none; }
         <div class="exp-item">
           <div class="exp-meta">2015 – 2019 · Teaching &amp; Community</div>
           <div class="exp-role">Adjunct Instructor · Organizing Chair · Manuscript Reviewer</div>
-          <div class="exp-company">Kendall College of Art &amp; Design · MidwestUX · O'Reilly Media</div>
+          <div class="exp-company">Kendall College of Art &amp; Design · MidwestUX · O’Reilly Media</div>
           <ul class="exp-bullets">
             <li>Adjunct Instructor of New Media Design at Kendall College (2015).</li>
             <li>2019 Organizing Chair for MidwestUX conference — overseeing program curation, team building, and budget.</li>
-            <li>Technical Reviewer for O'Reilly Media (2015 – Sep 2024) for 20+ manuscripts including <em>Articulating Design Decisions</em> and <em>Product Leadership</em>.</li>
+            <li>Technical Reviewer for O’Reilly Media (2015 – Sep 2024) for 20+ manuscripts including <em>Articulating Design Decisions</em> and <em>Product Leadership</em>.</li>
           </ul>
         </div>
 
@@ -813,5 +778,6 @@ ul { list-style: none; }
 
 </div><!-- end .page-wrap -->
 
+<script src="components.js"></script>
 </body>
 </html>
